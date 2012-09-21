@@ -184,3 +184,8 @@ input {
   color:#3883ce;
   text-decoration:none; 
 }
+
+
+.tabHeader {
+	width: 300px;
+}

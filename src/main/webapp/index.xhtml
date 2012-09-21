@@ -10,21 +10,32 @@
                 
     <ui:define name="content">        
         <h:outputScript target="head" name="showMessage.js" library="js"/>
+        <h:outputStylesheet library="css" name="tab.css"></h:outputStylesheet>
         
 		<h:form>		
-		
-			<rich:tabPanel switchType="client" id="tp" headerPosition="top" headerLocation="center">
-	            <rich:tab header="First">
-	            	<ui:include src="/resources/components/firstTabContent.xhtml" />              
-	            </rich:tab>
-	            <rich:tab header="Second">
-	                Here is tab #2
-	            </rich:tab>
-	            <rich:tab header="Third">
-	                Here is tab #3
-	            </rich:tab>
-	        </rich:tabPanel>
-        
+			<h:panelGrid columns="2">
+					<rich:accordion switchType="client" styleClass="accordion">
+		        		<rich:accordionItem header="Overview">
+		        			RichFaces is a component library for JSF and an advanced framework for easily interesting AJAX capabilities into business applications.
+		        		</rich:accordionItem>
+		        
+		        		<rich:accordionItem header="JSF 2 and Richfaces 4">
+		        			RichFaces 4.0 which have full JSF 2 integration has many surprised features.	        		
+		        		</rich:accordionItem> 	        
+	        		</rich:accordion>
+	        		
+	        		<rich:tabPanel switchType="client" id="tp" headerPosition="top" headerLocation="center" styleClass="tabPanel">
+						<rich:tab header="First" >
+				            	<ui:include src="/resources/components/firstTabContent.xhtml" />              
+			            </rich:tab>
+			            <rich:tab header="Second" >
+			                Here is tab #2
+			            </rich:tab>
+			            <rich:tab header="Third" >
+				                Here is tab #3
+				        </rich:tab>
+	        		</rich:tabPanel>
+			</h:panelGrid>        
         </h:form>
     </ui:define>
 </ui:composition>
