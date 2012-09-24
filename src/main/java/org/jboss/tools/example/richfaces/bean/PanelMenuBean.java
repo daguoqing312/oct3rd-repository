@@ -5,7 +5,7 @@ import javax.faces.bean.RequestScoped;
 
 import org.richfaces.event.ItemChangeEvent;
 
-@ManagedBean(name="panelMenu")
+@ManagedBean
 @RequestScoped
 public class PanelMenuBean {
     private String current;
