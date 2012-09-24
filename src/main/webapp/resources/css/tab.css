@@ -2,12 +2,6 @@
 	Stylesheet for tab
 */
 
-.accordion {
-	float: left;
-	width: 300px;
-}
-
-.tabPanel {
-	float: right;
-	width: 750px;
-}
+ .cols{
+            vertical-align:top;
+      }
