@@ -172,6 +172,13 @@ input {
   text-align:left;
 }
 
+.rt_tabPanel {
+	border:none;
+	width: 400px;
+}
+
+
+
 /* Using new CSS3 selectors for styling*/
 .simpletablestyle tr:nth-child(odd) {
   background: #f4f3f3;
