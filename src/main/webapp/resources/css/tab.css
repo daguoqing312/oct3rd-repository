@@ -2,49 +2,27 @@
 	Stylesheet for tab
 */
 
- .cols{
-        vertical-align:top;
-}
-      
- .rt-tabPanel {
-	width: 500px;
-	border: none;	
-	border-style: none;
-	background-color: PaleGoldenRod
-}
  
  .rt-panel-style{
-	width: 60%;
+	width: 100%;
 	background-color: Beige	
  }
  
- .rt-tab {
- 	background-color: MidnightBlue;
- }
- 
- .rf-tab-hdr-tabline-top {
- 	width: 600px;
+ .rt-tabPanel{
+ 	float: left;
+ 	background-color: aqua;
+ 	width: 49%;
  	
-	background-color: #FF0000;
- 	border-color: #000000;
  }
- 
- .rf-tab-hdr-tabline-vis {
- 	 	
- 	background-color: #FF0000;
- 	border-color: #000000;
- } 
- 
-.rf-tbp{
-	border:none;
-}
+  
 
-.rf-tab-hdr-tabs{
-	background-color: #FFFFFF;
-	/*background-color: PaleGoldenRod; */
-}
+ .rt-tabPanel-1{
+ 	margin-left: 50%;
+ 	
+ }
 
-.rf-tab-hdr-spcr{
-	padding-left:1px;
-}
+ .rt-blank{
+ 	width: 10px;
+ 	clear: both;
+ }
  

@@ -9,41 +9,36 @@
 	xmlns:my="http://java.sun.com/jsf/composite/components">
 
 	<ui:define name="outputStylesheet">
-			 
-			
+			 <h:outputStylesheet library="css" name="tab.css"/>		
 	</ui:define>
 	
-	<ui:define name="content">
-		<!-- <h:outputStylesheet library="css" name="tab.css"/> -->
+	<ui:define name="content">		
 		
 		<rich:panel header="Continent" styleClass="rt-panel-style">
 			
-			<rich:tabPanel  switchType="client"  tabHeaderClass="rt-tabPanel" styleClass="rt-tabPanel"  tabInactiveHeaderClass="rt-tabPanel" 
-								tabActiveHeaderClass="rt-tabPanel" tabDisabledHeaderClass="rt-tabPanel">
+			<rich:tabPanel  switchType="client"  tabHeaderClass="rt-tabPanel-header" styleClass="rt-tabPanel" >
 			
 				<rich:tab header="Asia" styleClass="rt-tab">
 					Asia is the continent with the largest population.
-				</rich:tab>
-				
+				</rich:tab>				
 				<rich:tab header="Africa" />
-
-
 				<rich:tab header="North America" />
 
-
+			</rich:tabPanel>
+			
+			<!--  <div class="rt-blank"></div>-->
+			
+			<rich:tabPanel  switchType="client"  tabHeaderClass="rt-tabPanel-header-1" styleClass="rt-tabPanel-1" >
+			
+				<rich:tab header="Europe" styleClass="rt-tab1">
+					Europe is the continent with the highest technology.
+				</rich:tab>				
+				<rich:tab header="Atlantic" />
 				<rich:tab header="South America" />
 
-
-				<rich:tab header="Antarctica" />
-
-
-				<rich:tab header="Europe" />
-
-
-				<rich:tab header="Australia" />
-
-
 			</rich:tabPanel>
+			
+			<div class="rt-blank"></div>
 		</rich:panel>
 
 	</ui:define>
