@@ -1,28 +1,35 @@
 /*
 	Stylesheet for tab
 */
+#content {  
+  width: 98%;
+  margin: auto;
+}
 
- 
- .rt-panel-style{
-	width: 100%;
-	background-color: Beige	
- }
- 
- .rt-tabPanel{
- 	float: left;
- 	background-color: aqua;
- 	width: 49%;
- 	
- }
-  
+.rt-menu{
+	background-color: Beige;
+	float: left;
+	padding: 0px;	
+}
 
- .rt-tabPanel-1{
- 	margin-left: 50%;
- 	
- }
+.rt-menu-1{
+	padding: 1px;
+	padding-top:2px;
+}
 
- .rt-blank{
- 	width: 10px;
- 	clear: both;
- }
- 
+.rt-panelMenu-1{
+	margin: 0px;
+	width:200px; 
+	height: 400px;	
+}
+
+.work-content{
+	margin-left: 210px;
+	height: 420px;
+	background-color: Beige
+}
+
+.status{
+	margin-top: 5px;
+	clear: both;
+}
