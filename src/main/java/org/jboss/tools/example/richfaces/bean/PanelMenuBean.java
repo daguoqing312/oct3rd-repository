@@ -8,6 +8,8 @@ import org.richfaces.event.ItemChangeEvent;
 @ManagedBean
 @RequestScoped
 public class PanelMenuBean {
+	
+	
     private String current;
     private boolean singleMode;
 

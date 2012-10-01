@@ -18,10 +18,7 @@
 
 				<rich:panel header="Menu" styleClass="rt-menu" bodyClass="rt-menu-1">
 
-					<rich:panelMenu style="width:200px" mode="ajax"
-						iconExpandedGroup="disc" iconCollapsedGroup="disc"
-						iconExpandedTopGroup="chevronUp" iconGroupTopPosition="right"
-						iconCollapsedTopGroup="chevronDown"
+					<rich:panelMenu style="width:200px" mode="ajax"						
 						itemChangeListener="#{panelMenuBean.updateCurrent}">
 
 						<rich:panelMenuGroup label="Ticket">
@@ -66,7 +63,9 @@
 							<rich:panelMenuItem label="New System" name="new_system1" />
 							<rich:panelMenuItem label="Service Call" name="service_call1" />
 						</rich:panelMenuGroup>
-<ui:remove>	
+						
+<ui:remove>
+	
 							<rich:panelMenuGroup label="Management">
 								<rich:panelMenuItem label="Survey" name="man_survey" />
 								<rich:panelMenuItem label="Inventory Worksheet"	name="inv_worksheet" />
