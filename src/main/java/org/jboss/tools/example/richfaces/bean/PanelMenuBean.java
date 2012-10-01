@@ -24,7 +24,8 @@ public class PanelMenuBean {
     }
 
     public void setCurrent(String current) {
-        this.current = current;
+    		//if (current == null || current.equals("")) return;
+        	this.current = current;        
     }
 
     public void updateCurrent(ItemChangeEvent event) {
