@@ -23,7 +23,8 @@ public class PanelMenuBean {
         return this.current;
     }
 
-    public void setCurrent(String current) {        
+    public void setCurrent(String current) {
+    		//if (current == null || current.equals("")) return;
         	this.current = current;        
     }
 
