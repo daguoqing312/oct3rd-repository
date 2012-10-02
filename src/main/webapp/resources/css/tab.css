@@ -26,10 +26,11 @@
 .work-content{
 	margin-left: 210px;
 	height: 420px;
-	background-color: Beige
+	background-color: Beige;
 }
 
 .status{
 	margin-top: 5px;
 	clear: both;
+	background-color: Beige;	
 }

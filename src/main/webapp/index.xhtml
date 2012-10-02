@@ -5,10 +5,14 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:a4j="http://richfaces.org/a4j"
-	xmlns:rich="http://richfaces.org/rich">
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:cp="http://java.sun.com/jsf/composite/components/workPages">
+
+	<ui:define name="style_file">
+		<h:outputStylesheet library="css" name="tab.css" />
+	</ui:define>
 
 	<ui:define name="content">
-		<h:outputStylesheet library="css" name="tab.css" />
 
 		<h:form id="reg" styleClass="rt-form">
 
@@ -18,7 +22,7 @@
 
 				<rich:panel header="Menu" styleClass="rt-menu" bodyClass="rt-menu-1">
 
-					<rich:panelMenu style="width:200px" mode="ajax"
+					<rich:panelMenu styleClass="rt-panelMenu-1" mode="ajax"
 						itemChangeListener="#{panelMenuBean.updateCurrent}">
 
 						<rich:panelMenuGroup label="Ticket">
@@ -28,11 +32,10 @@
 							<rich:panelMenuItem label="Service Call" name="service_call" />
 						</rich:panelMenuGroup>
 
-
 						<rich:panelMenuGroup label="Service Infomation">
 							<rich:panelMenuItem label="Call Parts" name="call_parts" />
 							<rich:panelMenuItem label="Contact Log" name="contact_log" />
-							<rich:panelMenuItem label="Work/Parts Approved" name="approved" />
+							<rich:panelMenuItem label="Work/Parts Approved" name="work_parts_approved" />
 							<rich:panelMenuItem label="Loaners" name="loaners" />
 						</rich:panelMenuGroup>
 
@@ -50,37 +53,30 @@
 								name="parts_info_request" />
 							<rich:panelMenuItem label="Quote Worksheet"
 								name="quote_worksheet" />
-							<rich:panelMenuItem label="Recommendation" name="parts_recomm" />
+							<rich:panelMenuItem label="Recommendation" name="recommendation" />
 							<rich:panelMenuItem label="Purchase Order" name="purchase_order" />
 							<rich:panelMenuItem label="Parts_received" name="parts_received" />
 							<rich:panelMenuItem label="AV Renewal" name="parts_renewed" />
 						</rich:panelMenuGroup>
 
 						<rich:panelMenuGroup label="Management">
-							<rich:panelMenuItem label="Survey" name="man_survey" />
+							<rich:panelMenuItem label="Survey" name="survey" />
 							<rich:panelMenuItem label="Inventory Worksheet"
-								name="inv_worksheet" />
-							<rich:panelMenuItem label="Unpaid Invoice" name="un_invoice" />
+								name="inventory_worksheet" />
+							<rich:panelMenuItem label="Unpaid Invoice" name="unpaid_invoice" />
 						</rich:panelMenuGroup>
 
-
 					</rich:panelMenu>
-
 				</rich:panel>
 
-
-				<ui:remove>
-					<rich:panel bodyClass="rich-laguna-panel-no-header">
-						<a4j:outputPanel ajaxRendered="true">
-							<h:outputText value="#{panelMenuBean.current} selected"
-								id="current" />
-						</a4j:outputPanel>
-					</rich:panel>
-				</ui:remove>
+				<rich:panel id="work_content" header="Work Content"
+					styleClass="work-content">
+					<h:outputText value="This is the panel content" />
+				</rich:panel>
 
 				<rich:panel id="status" header="Status" styleClass="status">
 					<a4j:outputPanel ajaxRendered="true">
-						<h:outputText value="#{panelMenuBean.current} selected"
+						<h:outputText value="Menu Selected: #{panelMenuBean.current}"
 							id="current" />
 					</a4j:outputPanel>
 				</rich:panel>
@@ -90,4 +86,10 @@
 		</h:form>
 
 	</ui:define>
+
+	<ui:define name="status">
+		<rich:messages globalOnly="true" styleClass="status" />
+	</ui:define>
+
 </ui:composition>
+
