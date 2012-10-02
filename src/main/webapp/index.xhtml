@@ -69,17 +69,37 @@
 					</rich:panelMenu>
 				</rich:panel>
 
-				<rich:panel id="work_content" header="Work Content"
-					styleClass="work-content">
+				<rich:panel id="work_content" header="Work Content"	styleClass="work-content">
 					<h:outputText value="This is the panel content" />
+					
+					<rich:togglePanel id="toggle_panel" switchType="ajax" activeItem="#{panelMenuBean.current}" >
+							
+							<rich:togglePanelItem name="default">
+									<h:outputText value="Default working panel" />							
+							</rich:togglePanelItem>
+							
+							<rich:togglePanelItem name="tech_work">
+									<h:outputText value="Tech work setting." />							
+							</rich:togglePanelItem>
+							
+							<rich:togglePanelItem name="parts">
+									<h:outputText value="Parts setting." />							
+							</rich:togglePanelItem>
+					
+							<rich:togglePanelItem name="new_system">
+									<h:outputText value="New System setting." />							
+							</rich:togglePanelItem>						
+					
+					</rich:togglePanel>					
+					
 				</rich:panel>
 
 				<rich:panel id="status" header="Status" styleClass="status">
-					<a4j:outputPanel ajaxRendered="true">
+					<a4j:outputPanel ajaxRendered="true">						
 						<h:outputText value="Menu Selected: #{panelMenuBean.current}"
 							id="current" />
 					</a4j:outputPanel>
-				</rich:panel>
+				</rich:panel>				
 
 			</rich:panel>
 
@@ -87,7 +107,7 @@
 
 	</ui:define>
 
-	<ui:define name="status">
+	<ui:define name="info_status">
 		<rich:messages globalOnly="true" styleClass="status" />
 	</ui:define>
 
