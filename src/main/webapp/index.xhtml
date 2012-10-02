@@ -18,7 +18,7 @@
 
 				<rich:panel header="Menu" styleClass="rt-menu" bodyClass="rt-menu-1">
 
-					<rich:panelMenu style="width:200px" mode="ajax"						
+					<rich:panelMenu style="width:200px" mode="ajax"
 						itemChangeListener="#{panelMenuBean.updateCurrent}">
 
 						<rich:panelMenuGroup label="Ticket">
@@ -27,52 +27,43 @@
 							<rich:panelMenuItem label="New System" name="new_system" />
 							<rich:panelMenuItem label="Service Call" name="service_call" />
 						</rich:panelMenuGroup>
-						
-						
-							<rich:panelMenuGroup label="Service Infomation">
-								<rich:panelMenuItem label="Call Parts" name="call_parts" />
-								<rich:panelMenuItem label="Contact Log" name="contact_log" />
-								<rich:panelMenuItem label="Work/Parts Approved" name="approved" />
-								<rich:panelMenuItem label="Loaners" name="loaners" />
-							</rich:panelMenuGroup>
 
-							<rich:panelMenuGroup label="Tech Work">
-								<rich:panelMenuItem label="Info Request" name="info_request" />
-								<rich:panelMenuItem label="Diag Summary" name="diag_summary" />
-								<rich:panelMenuItem label="Recommendations" name="recomm" />
-								<rich:panelMenuItem label="Work Log" name="work_log" />
-								<rich:panelMenuItem label="Work Summary" name="work_summary" />
-								<rich:panelMenuItem label="Verified" name="verified" />
-							</rich:panelMenuGroup>
 
-							<rich:panelMenuGroup label="Parts">
-								<rich:panelMenuItem label="Info Request"
-									name="parts_info_request" />
-								<rich:panelMenuItem label="Quote Worksheet"
-									name="quote_worksheet" />
-								<rich:panelMenuItem label="Recommendation" name="parts_recomm" />
-								<rich:panelMenuItem label="Purchase Order" name="purchase_order" />
-								<rich:panelMenuItem label="Parts_received" name="parts_received" />
-								<rich:panelMenuItem label="AV Renewal" name="parts_renewed" />
-							</rich:panelMenuGroup>
-							
-							
-						<rich:panelMenuGroup label="Ticket">
-							<rich:panelMenuItem label="Tech Work" name="tech_work1" />
-							<rich:panelMenuItem label="Parts" name="parts1" />
-							<rich:panelMenuItem label="New System" name="new_system1" />
-							<rich:panelMenuItem label="Service Call" name="service_call1" />
+						<rich:panelMenuGroup label="Service Infomation">
+							<rich:panelMenuItem label="Call Parts" name="call_parts" />
+							<rich:panelMenuItem label="Contact Log" name="contact_log" />
+							<rich:panelMenuItem label="Work/Parts Approved" name="approved" />
+							<rich:panelMenuItem label="Loaners" name="loaners" />
 						</rich:panelMenuGroup>
-						
-<ui:remove>
-	
-							<rich:panelMenuGroup label="Management">
-								<rich:panelMenuItem label="Survey" name="man_survey" />
-								<rich:panelMenuItem label="Inventory Worksheet"	name="inv_worksheet" />
-								<rich:panelMenuItem label="Unpaid Invoice" name="un_invoice" />
-							</rich:panelMenuGroup>							
-</ui:remove>
-						
+
+						<rich:panelMenuGroup label="Tech Work">
+							<rich:panelMenuItem label="Info Request" name="info_request" />
+							<rich:panelMenuItem label="Diag Summary" name="diag_summary" />
+							<rich:panelMenuItem label="Recommendations" name="recomm" />
+							<rich:panelMenuItem label="Work Log" name="work_log" />
+							<rich:panelMenuItem label="Work Summary" name="work_summary" />
+							<rich:panelMenuItem label="Verified" name="verified" />
+						</rich:panelMenuGroup>
+
+						<rich:panelMenuGroup label="Parts">
+							<rich:panelMenuItem label="Info Request"
+								name="parts_info_request" />
+							<rich:panelMenuItem label="Quote Worksheet"
+								name="quote_worksheet" />
+							<rich:panelMenuItem label="Recommendation" name="parts_recomm" />
+							<rich:panelMenuItem label="Purchase Order" name="purchase_order" />
+							<rich:panelMenuItem label="Parts_received" name="parts_received" />
+							<rich:panelMenuItem label="AV Renewal" name="parts_renewed" />
+						</rich:panelMenuGroup>
+
+						<rich:panelMenuGroup label="Management">
+							<rich:panelMenuItem label="Survey" name="man_survey" />
+							<rich:panelMenuItem label="Inventory Worksheet"
+								name="inv_worksheet" />
+							<rich:panelMenuItem label="Unpaid Invoice" name="un_invoice" />
+						</rich:panelMenuGroup>
+
+
 					</rich:panelMenu>
 
 				</rich:panel>

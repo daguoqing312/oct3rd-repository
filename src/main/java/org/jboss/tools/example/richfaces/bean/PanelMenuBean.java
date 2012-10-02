@@ -1,7 +1,10 @@
 package org.jboss.tools.example.richfaces.bean;
 
+import java.util.logging.Logger;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.inject.Inject;
 
 import org.richfaces.event.ItemChangeEvent;
 
@@ -9,7 +12,8 @@ import org.richfaces.event.ItemChangeEvent;
 @RequestScoped
 public class PanelMenuBean {
 	
-	
+	@Inject
+	private Logger log;
     private String current;
     private boolean singleMode;
 
@@ -27,7 +31,10 @@ public class PanelMenuBean {
 
     public void setCurrent(String current) {
     		//if (current == null || current.equals("")) return;
-        	this.current = current;        
+    		log.info("\n");
+    		log.info("current Value:" + current);
+        	this.current = current; 
+        	
     }
 
     public void updateCurrent(ItemChangeEvent event) {
