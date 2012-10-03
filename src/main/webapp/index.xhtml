@@ -22,7 +22,7 @@
 
 				<rich:panel header="Menu" styleClass="rt-menu" bodyClass="rt-menu-1">
 
-					<rich:panelMenu styleClass="rt-panelMenu-1" mode="client"
+					<rich:panelMenu styleClass="rt-panelMenu-1" mode="client" 
 						itemChangeListener="#{panelMenuBean.updateCurrent}">
 
 						<rich:panelMenuGroup label="Ticket">
@@ -103,7 +103,7 @@
 				</rich:panel>
 
 				<rich:panel id="status" header="Status" styleClass="status">
-					<a4j:outputPanel ajaxRendered="true">						
+					<a4j:outputPanel id="status_1" ajaxRendered="true">						
 						<h:outputText value="Menu Selected: #{panelMenuBean.current}"
 							id="current" />
 					</a4j:outputPanel>
