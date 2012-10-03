@@ -12,7 +12,7 @@ import javax.inject.Inject;
 import org.richfaces.event.ItemChangeEvent;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class PanelMenuBean implements Serializable{
 	
 	/**
