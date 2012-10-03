@@ -21,7 +21,7 @@
 	    </h:outputStylesheet>
 	    
 	    <h:form>
-	        <rich:togglePanel id="panel1" activeItem="item1" render="tabs" itemChangeListener="#{panelMenuBean.updateCurrent}">
+	        <rich:togglePanel id="panel1" activeItem="item1" render="panel_menu" itemChangeListener="#{panelMenuBean.updateCurrent}">
 	            <rich:togglePanelItem name="item1">
 	                <p>This toggle panel switches in Ajax mode. So only one active item loaded to the client.</p>
 	
@@ -34,18 +34,56 @@
 	                <p>For now you are at Panel 2</p>
 	            </rich:togglePanelItem>
 	        </rich:togglePanel>
-	        <a4j:outputPanel id="tabs" layout="block">
-	            <a4j:outputPanel layout="block" styleClass="tabDiv">
-	                <rich:toggleControl event="click" targetPanel="panel1" targetItem="item2" />
-	                <h:outputText value="Toggle Panel Item 1"
-	                    style="#{rich:findComponent('panel1').activeItem == 'item1' ? 'font-weight:bold' : 'font-weight:normal'}" />
-	            </a4j:outputPanel>
-	            <a4j:outputPanel layout="block" styleClass="tabDiv">
-	                <rich:toggleControl event="click" targetPanel="panel1" targetItem="item1" />
-	                <h:outputText value="Toggle Panel Item 2"
-	                    style="#{rich:findComponent('panel1').activeItem == 'item2' ? 'font-weight:bold' : 'font-weight:normal'}" />
-	            </a4j:outputPanel>
-	        </a4j:outputPanel>
+	        
+	        <rich:panelMenu id="panel_menu" styleClass="rt-panelMenu-1" mode="ajax"
+						itemChangeListener="#{panelMenuBean.updateCurrent}">
+						
+						<rich:panelMenuGroup label="Ticket">
+							<rich:panelMenuItem label="Tech Work" name="tech_work" onclick="RichFaces.switchToItem('item1')"/>
+								
+							
+							<rich:panelMenuItem label="Parts" name="parts" onclick="RichFaces.switchToItem('item2')"/>
+								
+														
+						</rich:panelMenuGroup>
+						
+						
+						<ui:remove>
+							<rich:panelMenuGroup label="Ticket">
+							<rich:panelMenuItem label="Tech Work" name="tech_work" >
+								<rich:toggleControl event="click" targetPanel="panel1" targetItem="item1" />
+							</rich:panelMenuItem>
+							<rich:panelMenuItem label="Parts" name="parts" >
+								<rich:toggleControl event="click" targetPanel="panel1" targetItem="item2" />
+							</rich:panelMenuItem>							
+							</rich:panelMenuGroup>
+						</ui:remove>
+	        
+	        </rich:panelMenu>
+	        
+	        <rich:panel id="status" header="Status" styleClass="status">
+					<a4j:outputPanel ajaxRendered="true">						
+						<h:outputText value="Menu Selected: #{panelMenuBean.current}"
+							id="current" />
+					</a4j:outputPanel>
+			</rich:panel>
+	        
+	        <ui:remove>
+	       
+			        <a4j:outputPanel id="tabs" layout="block">
+			            <a4j:outputPanel layout="block" styleClass="tabDiv">
+			                <rich:toggleControl event="click" targetPanel="panel1" targetItem="item1" />
+			                <h:outputText value="Toggle Panel Item 1"
+			                    style="#{rich:findComponent('panel1').activeItem == 'item1' ? 'font-weight:bold' : 'font-weight:normal'}" />
+			            </a4j:outputPanel>
+			            <a4j:outputPanel layout="block" styleClass="tabDiv">
+			                <rich:toggleControl event="click" targetPanel="panel1" targetItem="item2" />
+			                <h:outputText value="Toggle Panel Item 2"
+			                    style="#{rich:findComponent('panel1').activeItem == 'item2' ? 'font-weight:bold' : 'font-weight:normal'}" />
+			            </a4j:outputPanel>
+			        </a4j:outputPanel>
+	        
+	         </ui:remove>
 	    </h:form>
     </ui:define>
 </ui:composition>
