@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<style type="text/css">
+		#form1_1 {
+			margin: auto;
+			width: 40%;
+			border-style: solid;
+			border-width: 1px;
+			margin-top: 20px;			
+		}
+		
+		.rich-message { 
+			color:red; 
+		}
+		
+		.wform td { vertical-align:top; }
+		.wfcol1 { text-align: right; white-space:nowrap;}
+		.wfcol2 { }
+		.wfcol3 { }
+		.s1row td { height:30px; } 
+	</style>
+</h:head>
+
+<body>
+	<div id="form1_1">
+		<div style="position: relative; height: 300px; padding: 10px;">
+			<rich:panel id="cus_info" header="Customer Information" style="float:left;">
+			
+				<h:panelGrid rowClasses="s1row" columns="3"	columnClasses="wfcol1,wfcol2,wfcol3">
+				
+					<h:outputText value="Company:" />
+					<h:inputText id="comp" value="#{customerInfo.company}" label="Company"
+						required="false" />
+					<rich:message for="comp" />
+					
+					<h:outputText value="Name:" />
+					<h:inputText id="name" value="#{customerInfo.name}" label="name"
+						required="true" />
+					<rich:message for="name" />
+					
+					<h:outputText value="Address:" />
+					<h:inputText id="addr" value="#{customerInfo.address}" label="Address"
+						required="true" />
+					<rich:message for="addr" />
+					
+					<h:outputText value="Phone Number:" />
+					<h:inputText id="phone1" value="#{customerInfo.phone1}" 
+						required="true" />
+					<rich:message for="phone1" />
+					
+					<h:outputText value="2nd Phone Number:" />
+					<h:inputText id="phone2" value="#{customerInfo.phone2}" 
+						required="false" />
+					<rich:message for="phone2" />
+					
+					<h:outputText value="Email:" />
+					<h:inputText id="email" value="#{customerInfo.email}" 
+						required="false" />
+					<rich:message for="email" />
+												
+				</h:panelGrid>
+			
+			</rich:panel>
+			
+			<rich:panel id="unit_info" header="Unit Infomation" style="float:right;">
+			
+				<h:panelGrid rowClasses="s1row" columns="3"	columnClasses="wfcol1,wfcol2,wfcol3">
+				
+					<h:outputText value="User Name:" />
+					<h:inputText id="usn" value="#{unitInfo.username}" 
+						required="true" />
+					<rich:message for="usn" />
+					
+					<h:outputText value="Password:" />
+					<h:inputText id="pwd" value="#{unitInfo.name}" label="name"
+						required="true" />
+					<rich:message for="name" />
+					
+					<h:outputText value="Address:" />
+					<h:inputText id="addr" value="#{unitInfo.address}" label="Address"
+						required="true" />
+					<rich:message for="addr" />
+					
+					<h:outputText value="Phone Number:" />
+					<h:inputText id="phone1" value="#{unitInfo.phone1}" 
+						required="true" />
+					<rich:message for="phone1" />
+					
+					<h:outputText value="2nd Phone Number:" />
+					<h:inputText id="phone2" value="#{unitInfo.phone2}" 
+						required="false" />
+					<rich:message for="phone2" />
+					
+					<h:outputText value="Email:" />
+					<h:inputText id="email" value="#{unitInfo.email}" 
+						required="false" />
+					<rich:message for="email" />
+												
+				</h:panelGrid>
+			
+			
+			</rich:panel>
+			
+			<div class="navPanel" style="margin-top:10px;">
+				<a4j:commandButton value="Submit">
+					
+				</a4j:commandButton>
+			</div>
+			
+		</div>
+	</div>
+
+</body>
+</html>
