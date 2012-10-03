@@ -26,8 +26,10 @@
 						itemChangeListener="#{panelMenuBean.updateCurrent}">
 
 						<rich:panelMenuGroup label="Ticket">
-							<rich:panelMenuItem label="Tech Work" name="tech_work" />
-							<rich:panelMenuItem label="Parts" name="parts" />
+							<rich:panelMenuItem label="Tech Work" name="tech_work" 
+									onclick="#{rich:component('toggle_panel')}.switchToItem('tech_work');"/>
+							<rich:panelMenuItem label="Parts" name="parts" 
+									onclick="#{rich:component('toggle_panel')}.switchToItem('parts');"/>
 							<rich:panelMenuItem label="New System" name="new_system" />
 							<rich:panelMenuItem label="Service Call" name="service_call" />
 						</rich:panelMenuGroup>
