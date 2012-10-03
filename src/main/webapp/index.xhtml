@@ -22,7 +22,7 @@
 
 				<rich:panel header="Menu" styleClass="rt-menu" bodyClass="rt-menu-1">
 
-					<rich:panelMenu styleClass="rt-panelMenu-1" mode="ajax"
+					<rich:panelMenu styleClass="rt-panelMenu-1" mode="client"
 						itemChangeListener="#{panelMenuBean.updateCurrent}">
 
 						<rich:panelMenuGroup label="Ticket">
@@ -30,8 +30,10 @@
 									onclick="#{rich:component('toggle_panel')}.switchToItem('tech_work');"/>
 							<rich:panelMenuItem label="Parts" name="parts" 
 									onclick="#{rich:component('toggle_panel')}.switchToItem('parts');"/>
-							<rich:panelMenuItem label="New System" name="new_system" />
-							<rich:panelMenuItem label="Service Call" name="service_call" />
+							<rich:panelMenuItem label="New System" name="new_system" 
+									onclick="#{rich:component('toggle_panel')}.switchToItem('new_system');"/>
+							<rich:panelMenuItem label="Service Call" name="service_call" 
+									onclick="#{rich:component('toggle_panel')}.switchToItem('service_call');"/>
 						</rich:panelMenuGroup>
 
 						<rich:panelMenuGroup label="Service Infomation">
@@ -74,7 +76,7 @@
 				<rich:panel id="work_content" header="Work Content"	styleClass="work-content">
 					<h:outputText value="This is the panel content" />
 					
-					<rich:togglePanel id="toggle_panel" switchType="ajax" activeItem="#{panelMenuBean.current}" >
+					<rich:togglePanel id="toggle_panel" switchType="client" activeItem="#{panelMenuBean.current}" >
 							
 							<rich:togglePanelItem name="default">
 									<h:outputText value="Default working panel" />							
@@ -90,7 +92,11 @@
 					
 							<rich:togglePanelItem name="new_system">
 									<h:outputText value="New System setting." />							
-							</rich:togglePanelItem>						
+							</rich:togglePanelItem>
+							
+							<rich:togglePanelItem name="service_call">
+									<h:outputText value="service_call setting." />							
+							</rich:togglePanelItem>							
 					
 					</rich:togglePanel>					
 					
