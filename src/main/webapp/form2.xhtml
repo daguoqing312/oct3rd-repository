@@ -8,7 +8,7 @@
 
 <h:head>
 	<style type="text/css">
-		#form1_1 {
+		#form2_1 {
 			margin: auto;
 			width: 50%;
 			border-style: solid;
@@ -34,47 +34,10 @@
 </h:head>
 
 <body>
-	<div id="form1_1">
-		<div style="position: relative; height: 500px; padding: 10px;">
-			<rich:panel id="cus_info" header="Customer Information" style="float:left;">
-			
-				<h:panelGrid rowClasses="s1row" columns="3"	columnClasses="wfcol1,wfcol2,wfcol3">
-				
-					<h:outputText value="Company:" />
-					<h:inputText id="comp" value="#{customerInfo.company}" label="Company"
-						required="false" />
-					<rich:message for="comp" />
-					
-					<h:outputText value="Name:" />
-					<h:inputText id="name" value="#{customerInfo.name}" label="name"
-						required="true" />
-					<rich:message for="name" />
-					
-					<h:outputText value="Address:" />
-					<h:inputText id="addr" value="#{customerInfo.address}" label="Address"
-						required="true" />
-					<rich:message for="addr" />
-					
-					<h:outputText value="Phone Number:" />
-					<h:inputText id="phone1" value="#{customerInfo.phone1}" 
-						required="true" />
-					<rich:message for="phone1" />
-					
-					<h:outputText value="2nd Phone Number:" />
-					<h:inputText id="phone2" value="#{customerInfo.phone2}" 
-						required="false" />
-					<rich:message for="phone2" />
-					
-					<h:outputText value="Email:" />
-					<h:inputText id="email" value="#{customerInfo.email}" 
-						required="false" />
-					<rich:message for="email" />
-												
-				</h:panelGrid>
-			
-			</rich:panel>
-			
-			<rich:panel id="unit_info" header="Unit Infomation" style="float:right;">
+	<div id="form2_1">
+		<div style="position: relative; height: 500px; padding: 10px; ">
+						
+			<rich:panel id="unit_info" header="Unit Infomation" >
 			
 				<h:panelGrid rowClasses="s1row" columns="3"	columnClasses="wfcol1,wfcol2,wfcol3">
 				
