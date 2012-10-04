@@ -10,25 +10,13 @@
 	<style type="text/css">
 		#form2_1 {
 			margin: auto;
-			width: 50%;
-			border-style: solid;
-			border-width: 1px;
-			margin-top: 20px;			
-		}
-		
-		.rich-message { 
-			color:red; 
-		}
-		
-		.wform td { vertical-align:top; }
-		.wfcol1 { text-align: right; white-space:nowrap;}
-		.wfcol2 { }
-		.wfcol3 { }
-		.s1row td { height:30px; } 
-		
-		.navPanel{					
-					border-style: solid; 
-					border-width: 1px;
+			width: 80%;			
+			margin-top: 0px;			
+		}	
+		.form2-navPanel{				
+			margin-top: 30px;
+			margin-left:100px;
+					
 		}
 	</style>
 </h:head>
@@ -75,14 +63,6 @@
 						required="false" />
 					<rich:message for="prb_des" />
 					
-					<h:outputText value="Rush(y/N):" />
-					<h:selectBooleanCheckbox id="rush" value="#{unitInfo.rush}" required="false"/>
-					<rich:message for="rush"/>
-					
-					<h:outputText value="PC Dusting(y/N):" />
-					<h:selectBooleanCheckbox id="dust" value="#{unitInfo.dust}" required="false"/>
-					<rich:message for="dust"/>
-					
 					<h:outputText value="Rental Needed:" />
 						<rich:select id="rental" required="true" value="#{unitInfo.rental}" >
 							<f:selectItem itemValue="0" itemLabel="No" />
@@ -92,6 +72,16 @@
 						</rich:select>				
 					<rich:message for="rental" />
 					
+					<h:outputText value="Rush:" />
+					<h:selectBooleanCheckbox id="rush" value="#{unitInfo.rush}" required="false"/>
+					<rich:message for="rush"/>
+					
+					<h:outputText value="PC Dusting:" />
+					<h:selectBooleanCheckbox id="dust" value="#{unitInfo.dust}" required="false"/>
+					<rich:message for="dust"/>
+					
+					
+					
 					<h:outputText value="Service Tag:" />
 					<h:inputText id="sv_tag" value="#{unitInfo.service_tag}" 
 						required="true" />
@@ -99,14 +89,13 @@
 												
 				</h:panelGrid>
 			
-			</rich:panel>
-			
-			<div style="clear: both; border-style:solid; border-width: 1px; padding-top: 10px;">
-				<div class="navPanel" >
+				<div class="form2-navPanel" >
 					<a4j:commandButton value="Submit" >						
 					</a4j:commandButton>
 				</div>
-			</div>
+			</rich:panel>
+			
+			
 		</div>
 	</div>
 
