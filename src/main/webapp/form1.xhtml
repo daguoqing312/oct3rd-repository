@@ -36,7 +36,7 @@
 <body>
 	<div id="form1_1">
 		<div style="position: relative; height: 500px; padding: 10px;">
-			<rich:panel id="cus_info" header="Customer Information" style="float:left;">
+			<rich:panel id="cus_info" header="Customer Information" >
 			
 				<h:panelGrid rowClasses="s1row" columns="3"	columnClasses="wfcol1,wfcol2,wfcol3">
 				
@@ -72,71 +72,8 @@
 												
 				</h:panelGrid>
 			
-			</rich:panel>
+			</rich:panel>			
 			
-			<rich:panel id="unit_info" header="Unit Infomation" style="float:right;">
-			
-				<h:panelGrid rowClasses="s1row" columns="3"	columnClasses="wfcol1,wfcol2,wfcol3">
-				
-					<h:outputText value="User Name:" />
-					<h:inputText id="usn" value="#{unitInfo.username}" 
-						required="true" />
-					<rich:message for="usn" />
-					
-					<h:outputText value="Password:" />
-					<h:inputText id="pwd" value="#{unitInfo.name}" 
-						required="true" />
-					<rich:message for="name" />
-					
-					<h:outputText value="Type:" />
-						<rich:select id="type" required="true" value="#{unitInfo.type}" >
-							<f:selectItem itemValue="0" itemLabel="Tower" />
-							<f:selectItem itemValue="1" itemLabel="Laptop" />
-							<f:selectItem itemValue="2" itemLabel="Printer" />
-							<f:selectItem itemValue="3" itemLabel="Other" />							
-						</rich:select>				
-					<rich:message for="type" />
-					
-					<h:outputText value="Brand/Model:" />
-					<h:inputText id="br_md" value="#{unitInfo.brand_model}" 
-						required="true" />
-					<rich:message for="br_md" />
-					
-					<h:outputText value="Condition Notes:" />
-					<h:inputText id="cd_nt" value="#{unitInfo.cond_notes}" 
-						required="false" />
-					<rich:message for="cd_nt" />
-					
-					<h:outputText value="Problem Description:" />
-					<h:inputText id="prb_des" value="#{unitInfo.prob_desc}" 
-						required="false" />
-					<rich:message for="prb_des" />
-					
-					<h:outputText value="Rush(y/N):" />
-					<h:selectBooleanCheckbox id="rush" value="#{unitInfo.rush}" required="false"/>
-					<rich:message for="rush"/>
-					
-					<h:outputText value="PC Dusting(y/N):" />
-					<h:selectBooleanCheckbox id="dust" value="#{unitInfo.dust}" required="false"/>
-					<rich:message for="dust"/>
-					
-					<h:outputText value="Rental Needed:" />
-						<rich:select id="rental" required="true" value="#{unitInfo.rental}" >
-							<f:selectItem itemValue="0" itemLabel="No" />
-							<f:selectItem itemValue="1" itemLabel="Daily($29.99/day)" />
-							<f:selectItem itemValue="2" itemLabel="Until Complete($129.99/day)" />
-							<f:selectItem itemValue="3" itemLabel="Other" />							
-						</rich:select>				
-					<rich:message for="rental" />
-					
-					<h:outputText value="Service Tag:" />
-					<h:inputText id="sv_tag" value="#{unitInfo.service_tag}" 
-						required="true" />
-					<rich:message for="sv_tag" />
-												
-				</h:panelGrid>
-			
-			</rich:panel>
 			
 			<div style="clear: both; border-style:solid; border-width: 1px; padding-top: 10px;">
 				<div class="navPanel" >
