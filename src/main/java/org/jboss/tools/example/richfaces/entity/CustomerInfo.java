@@ -3,13 +3,15 @@ package org.jboss.tools.example.richfaces.entity;
 import java.io.Serializable;
 import java.lang.String;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Entity implementation class for Entity: customerInfo
  *
  */
 @Entity
-
+@XmlRootElement
+@Table
 public class CustomerInfo implements Serializable {
 
 	   
