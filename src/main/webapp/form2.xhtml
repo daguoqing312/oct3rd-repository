@@ -22,17 +22,13 @@
 </h:head>
 
 <body>
-
-	<div id="form2_1">	
+	<div id="form2_1">
+		<div style="position: relative; height: 500px; padding: 10px; ">
 						
 			<rich:panel id="unit_info" header="Unit Infomation" >
 			
 				<h:panelGrid rowClasses="s1row" columns="3"	columnClasses="wfcol1,wfcol2,wfcol3">
-					<h:outputText value="Customer Id: " />
-					<h:inputText id="unit_cus_id" value="#{customerInfo.cus_id}" 
-						required="true" />
-					<rich:message for="unit_cus_id" />
-					
+				
 					<h:outputText value="User Name:" />
 					<h:inputText id="usn" value="#{unitInfo.username}" 
 						required="true" />
@@ -58,12 +54,12 @@
 					<rich:message for="br_md" />
 					
 					<h:outputText value="Condition Notes:" />
-					<h:inputTextarea id="cd_nt" value="#{unitInfo.cond_notes}" cols="36" 
+					<h:inputText id="cd_nt" value="#{unitInfo.cond_notes}" 
 						required="false" />
 					<rich:message for="cd_nt" />
 					
 					<h:outputText value="Problem Description:" />
-					<h:inputTextarea id="prb_des" value="#{unitInfo.prob_desc}" cols="36"
+					<h:inputText id="prb_des" value="#{unitInfo.prob_desc}" 
 						required="false" />
 					<rich:message for="prb_des" />
 					
@@ -76,11 +72,6 @@
 						</rich:select>				
 					<rich:message for="rental" />
 					
-					<h:outputText value="Service Tag:" />
-					<h:inputText id="sv_tag" value="#{unitInfo.service_tag}" 
-						required="true" />
-					<rich:message for="sv_tag" />
-					
 					<h:outputText value="Rush:" />
 					<h:selectBooleanCheckbox id="rush" value="#{unitInfo.rush}" required="false"/>
 					<rich:message for="rush"/>
@@ -88,6 +79,13 @@
 					<h:outputText value="PC Dusting:" />
 					<h:selectBooleanCheckbox id="dust" value="#{unitInfo.dust}" required="false"/>
 					<rich:message for="dust"/>
+					
+					
+					
+					<h:outputText value="Service Tag:" />
+					<h:inputText id="sv_tag" value="#{unitInfo.service_tag}" 
+						required="true" />
+					<rich:message for="sv_tag" />
 												
 				</h:panelGrid>
 			
@@ -95,10 +93,13 @@
 					<a4j:commandButton value="Submit" >						
 					</a4j:commandButton>
 				</div>
-			</rich:panel>	
-		
+			</rich:panel>
+			
+			
+		</div>
 	</div>
 
 </body>
 </html>
+
 
