@@ -40,19 +40,24 @@
 			<rich:panel id="cus_info" header="Customer Information" >
 			
 				<h:panelGrid rowClasses="s1row" columns="3"	columnClasses="wfcol1,wfcol2,wfcol3">
-				
+					
+					<h:outputText value="Customer Id: " />
+					<h:inputText id="cus_id" value="#{customerInfo.id}" 
+						required="true" />
+					<rich:message for="cus_id" />
+					
 					<h:outputText value="Company:" />
-					<h:inputText id="comp" value="#{customerInfo.company}" label="Company"
+					<h:inputText id="comp" value="#{customerInfo.company}" 
 						required="false" />
 					<rich:message for="comp" />
 					
 					<h:outputText value="Name:" />
-					<h:inputText id="name" value="#{customerInfo.name}" label="name"
+					<h:inputText id="name" value="#{customerInfo.name}" 
 						required="true" />
 					<rich:message for="name" />
 					
 					<h:outputText value="Address:" />
-					<h:inputText id="addr" value="#{customerInfo.address}" label="Address"
+					<h:inputText id="addr" value="#{customerInfo.address}" 
 						required="true" />
 					<rich:message for="addr" />
 					
@@ -70,6 +75,15 @@
 					<h:inputText id="email" value="#{customerInfo.email}" 
 						required="false" />
 					<rich:message for="email" />
+					
+					<h:outputText value="Client Type:" />
+					<rich:select id="cl_type" required="true" value="#{customerInfo.type}" >
+							<f:selectItem itemValue="0" itemLabel="Normal" />
+							<f:selectItem itemValue="1" itemLabel="BB/FS" />
+							<f:selectItem itemValue="2" itemLabel="TD" />
+							<f:selectItem itemValue="3" itemLabel="Other" />							
+						</rich:select>	
+					<rich:message for="cl_type" />
 												
 				</h:panelGrid>
 				
