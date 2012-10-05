@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<style type="text/css">
+		#form4_1 {
+			margin: auto;
+			width: 80%;			
+			margin-top: 0px;			
+		}	
+		.form4-navPanel{				
+			margin-top: 30px;
+			margin-left:100px;
+					
+		}
+	</style>
+</h:head>
+
+<body>
+
+	<div id="form4_1">	
+						
+			<rich:panel id="unit_info" header="New System Infomation" >
+			
+				<h:panelGrid rowClasses="s1row" columns="3"	columnClasses="wfcol1,wfcol2,wfcol3">
+					<h:outputText value="Customer Id: " />
+					<h:inputText id="sys_cus_id" value="#{customerInfo.cus_id}" 
+						required="true" />
+					<rich:message for="sys_cus_id" />					
+					
+					<h:outputText value="Type:" />
+						<rich:select id="sys_type" required="true" value="#{sysInfo.type}" >
+							<f:selectItem itemValue="0" itemLabel="Tower" />
+							<f:selectItem itemValue="1" itemLabel="Laptop" />
+							<f:selectItem itemValue="2" itemLabel="Netbook" />
+							<f:selectItem itemValue="3" itemLabel="Other" />							
+						</rich:select>				
+					<rich:message for="sys_type" />
+					
+					<h:outputText value="Brand/Model/Spec Option:" />
+					<h:inputText id="spec" value="#{sysInfo.spec}" 
+						required="true" />
+					<rich:message for="spec" />
+										
+					<h:outputText value="First Start Language:" />
+						<rich:select id="lang" required="true" value="#{sysInfo.lang}" >
+							<f:selectItem itemValue="0" itemLabel="English" />
+							<f:selectItem itemValue="1" itemLabel="French" />														
+						</rich:select>				
+					<rich:message for="lang" />
+					
+					
+					<h:outputText value="AV to Install:" />
+					<h:inputText id="anti_v" value="#{sysInfo.anti_v}" 
+						required="false" />
+					<rich:message for="anti_v" />
+					
+					
+					<h:outputText value="Office to Install:" />
+					<h:inputText id="office" value="#{sysInfo.office}" 
+						required="false" />
+					<rich:message for="office" />
+					
+					
+					<h:outputText value="Desired Username:" />
+					<h:inputText id="de_usr" value="#{sysInfo.desired_usr}" 
+						required="true" />
+					<rich:message for="de_usr" />
+					
+					<h:outputText value="Desired Password:" />
+					<h:inputText id="de_psw" value="#{sysInfo.desired_psw}" 
+						required="true" />
+					<rich:message for="de_psw" />
+					
+					<h:outputText value="Promised Ready By:" />
+					<h:inputText id="ready" value="#{sysInfo.ready_date}" 
+						required="true" />
+					<rich:message for="ready" />
+					
+					<h:outputText value="Other Notes:" />
+					<h:inputTextarea id="imp_nt" value="#{sysInfo.imp_note}" cols="36"
+						required="false" />
+					<rich:message for="imp_nt" />
+					
+										
+					<h:outputText value="Service Tag:" />
+					<h:inputText id="sys_sv_tag" value="#{sysInfo.sv_tag}" 
+						required="true" />
+					<rich:message for="sys_sv_tag" />
+									
+					<h:outputText value="In Home Setup:" />
+					<h:selectBooleanCheckbox id="hm_setup" value="#{sysInfo.home_setup}" required="false"/>
+					<rich:message for="hm_setup"/>
+												
+				</h:panelGrid>
+			
+				<div class="form4-navPanel" >
+					<a4j:commandButton value="Submit" >						
+					</a4j:commandButton>
+				</div>
+			</rich:panel>	
+		
+	</div>
+
+</body>
+</html>
+
