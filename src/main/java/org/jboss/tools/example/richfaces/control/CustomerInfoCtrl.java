@@ -4,6 +4,8 @@ package org.jboss.tools.example.richfaces.control;
 import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.Stateful;
+import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Model;
 import javax.enterprise.inject.Produces;
 import javax.faces.application.FacesMessage;
@@ -15,6 +17,7 @@ import javax.persistence.EntityManager;
 import org.jboss.tools.example.richfaces.entity.CustomerInfo;
 
 @Model
+@Stateful
 public class CustomerInfoCtrl {
 
 	@Inject
@@ -31,19 +34,18 @@ public class CustomerInfoCtrl {
 	
 
 	
-	public void submit(){
+	public void submit() throws Exception{
 		submitForm(newCustomerInfo);
 		initCustomerInfo();
 		facesContext.addMessage("submitForm", new FacesMessage(FacesMessage.SEVERITY_INFO, "Customer Info Submitted", "submitted"));
+		log.severe("Come to submit");
 	}
 	
-	public void submitForm(CustomerInfo customerInfo){
-		try{
+	public void submitForm(CustomerInfo customerInfo)throws Exception{
+		
 			em.persist(customerInfo);
-		}catch (Exception e){
-			log.severe("Save in database failed.");
-			log.severe(e.getMessage());
-		}
+			log.severe("Come to submitForm");
+			
 	}
 	
 	@PostConstruct

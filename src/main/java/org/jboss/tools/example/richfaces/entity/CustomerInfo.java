@@ -10,8 +10,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  */
 @Entity
-@XmlRootElement
-@Table
 public class CustomerInfo implements Serializable {
 
 	   
