@@ -3,10 +3,10 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-   <title>The Computer Dr.</title>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-   <h:outputStylesheet name="screen.css" library="css"/>
+   <title>Auto Management System for Family</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
 </h:head>
+
 <h:body>
    <div id="container">
    		<div id="logo">
@@ -24,18 +24,14 @@
       
       <div id="footer">
          <p>
-            This project was generated from The Computer Dr. Company.<br />
+            This project was generated from Ottawa J2EE Website Building Team<br />
          </p>
-      </div>
-      
-      <div id="status" class="status">
-      		<ui:insert name="status">      			
-      		</ui:insert>      
-      </div>
-      
-      <div id="style_file">
-   		<ui:insert name="style_file" />
-   	  </div>
+      </div>     
+   	
    </div>
+   
+   <ui:insert name="style_file" />
+   <h:outputStylesheet name="screen.css" library="css"/>
+    
 </h:body>
 </html>

@@ -6,7 +6,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:a4j="http://richfaces.org/a4j"
 	xmlns:rich="http://richfaces.org/rich"
-	xmlns:cp="http://java.sun.com/jsf/composite/components/workPages">
+	>
 
 	<ui:define name="style_file">
 		<h:outputStylesheet library="css" name="tab.css" />
@@ -18,14 +18,14 @@
 
 			<rich:panel id="workingPanel" headerClass="rt-header"
 				bodyClass="rt-body" styleClass="rt-style"
-				header="The Computer Dr. Business Management">
+				header="The Auto Management System">
 
 				<rich:panel header="Menu" styleClass="rt-menu" bodyClass="rt-menu-1">
 
 					<rich:panelMenu styleClass="rt-panelMenu-1" mode="client"
 						itemChangeListener="#{panelMenuBean.updateCurrent}">
 
-						<rich:panelMenuGroup label="Ticket">
+						<rich:panelMenuGroup label="Auto Data">
 							<rich:panelMenuItem label="Customer Info" name="cus_info" onclick="#{rich:component('toggle_panel')}.switchToItem('cus_info');"/>
 							<rich:panelMenuItem label="Tech Work" name="tech_work" onclick="#{rich:component('toggle_panel')}.switchToItem('tech_work');"/>
 							<rich:panelMenuItem label="Parts" name="parts" onclick="#{rich:component('toggle_panel')}.switchToItem('parts');"/>
@@ -40,29 +40,7 @@
 							<rich:panelMenuItem label="Loaners" name="loaners" onclick="#{rich:component('toggle_panel')}.switchToItem('loaners');"/>
 						</rich:panelMenuGroup>
 
-						<rich:panelMenuGroup label="Tech Work">
-							<rich:panelMenuItem label="Info Request" name="info_request" onclick="#{rich:component('toggle_panel')}.switchToItem('info_request');"/>
-							<rich:panelMenuItem label="Diag Summary" name="diag_summary" onclick="#{rich:component('toggle_panel')}.switchToItem('diag_summary');"/>
-							<rich:panelMenuItem label="Recommendations" name="recomm" onclick="#{rich:component('toggle_panel')}.switchToItem('recomm');"/>
-							<rich:panelMenuItem label="Work Log" name="work_log" onclick="#{rich:component('toggle_panel')}.switchToItem('work_log');"/>
-							<rich:panelMenuItem label="Work Summary" name="work_summary" onclick="#{rich:component('toggle_panel')}.switchToItem('work_summary');"/>
-							<rich:panelMenuItem label="Verified" name="verified" onclick="#{rich:component('toggle_panel')}.switchToItem('verified');"/>
-						</rich:panelMenuGroup>
-
-						<rich:panelMenuGroup label="Parts">
-							<rich:panelMenuItem label="Info Request" name="parts_info_request" onclick="#{rich:component('toggle_panel')}.switchToItem('parts_info_request');"/>
-							<rich:panelMenuItem label="Quote Worksheet"	name="quote_worksheet" onclick="#{rich:component('toggle_panel')}.switchToItem('quote_worksheet');"/>
-							<rich:panelMenuItem label="Recommendation" name="recommendation" onclick="#{rich:component('toggle_panel')}.switchToItem('recommendation');"/>
-							<rich:panelMenuItem label="Purchase Order" name="purchase_order" onclick="#{rich:component('toggle_panel')}.switchToItem('purchase_order');"/>
-							<rich:panelMenuItem label="Parts_received" name="parts_received" onclick="#{rich:component('toggle_panel')}.switchToItem('parts_received');"/>
-							<rich:panelMenuItem label="AV Renewal" name="parts_renewed" onclick="#{rich:component('toggle_panel')}.switchToItem('parts_renewed');"/>
-						</rich:panelMenuGroup>
-
-						<rich:panelMenuGroup label="Management">
-							<rich:panelMenuItem label="Survey" name="survey" onclick="#{rich:component('toggle_panel')}.switchToItem('survey');"/>
-							<rich:panelMenuItem label="Inventory Worksheet"	name="inventory_worksheet" onclick="#{rich:component('toggle_panel')}.switchToItem('inventory_worksheet');"/>
-							<rich:panelMenuItem label="Unpaid Invoice" name="unpaid_invoice" onclick="#{rich:component('toggle_panel')}.switchToItem('unpaid_invoice');"/>
-						</rich:panelMenuGroup>
+						
 
 					</rich:panelMenu>
 				</rich:panel>
@@ -77,110 +55,14 @@
 							
 							<rich:togglePanelItem name="cus_info">
 									<ui:include src="/form1.xhtml" />							
-							</rich:togglePanelItem>
-							
-							<rich:togglePanelItem name="tech_work">
-								<h:outputText value="Default tech work." />															
-							</rich:togglePanelItem>
-							
-							<rich:togglePanelItem name="parts">
-																
-							</rich:togglePanelItem>
-					
-							<rich:togglePanelItem name="new_system">
-																
-							</rich:togglePanelItem>	
-							
-							<rich:togglePanelItem name="service_call">
-																
-							</rich:togglePanelItem>
-							
-							<rich:togglePanelItem name="call_parts">
-									<h:outputText value="call parts setting." />							
-							</rich:togglePanelItem>
-							
-							<rich:togglePanelItem name="contact_log">
-									<h:outputText value="contact_log setting." />							
-							</rich:togglePanelItem>
-					
-							<rich:togglePanelItem name="work_parts_approved">
-									<h:outputText value="work_parts_approved setting." />							
-							</rich:togglePanelItem>	
-							
-							<rich:togglePanelItem name="loaners">
-									<h:outputText value="loaners setting" />							
-							</rich:togglePanelItem>
-							
-							<rich:togglePanelItem name="info_request">
-									<h:outputText value="info_request setting." />							
-							</rich:togglePanelItem>
-							
-							<rich:togglePanelItem name="diag_summary">
-									<h:outputText value="diag_summary setting." />							
-							</rich:togglePanelItem>
-					
-							<rich:togglePanelItem name="recomm">
-									<h:outputText value="recomm setting." />							
-							</rich:togglePanelItem>	
-							
-							<rich:togglePanelItem name="work_log">
-									<h:outputText value="work_log setting" />							
-							</rich:togglePanelItem>
-							
-							<rich:togglePanelItem name="work_summary">
-									<h:outputText value="work_summary setting." />							
-							</rich:togglePanelItem>
-							
-							<rich:togglePanelItem name="verified">
-									<h:outputText value="verified setting." />							
-							</rich:togglePanelItem>
-					
-							<rich:togglePanelItem name="parts_info_request">
-									<h:outputText value="parts_info_request setting." />							
-							</rich:togglePanelItem>
-							
-							<rich:togglePanelItem name="quote_worksheet">
-									<h:outputText value="quote_worksheet setting" />							
-							</rich:togglePanelItem>
-							
-							<rich:togglePanelItem name="recommendation">
-									<h:outputText value="recommendation setting." />							
-							</rich:togglePanelItem>
-							
-							<rich:togglePanelItem name="purchase_order">
-									<h:outputText value="purchase_order setting." />							
-							</rich:togglePanelItem>
-					
-							<rich:togglePanelItem name="parts_received">
-									<h:outputText value="parts_received setting." />							
-							</rich:togglePanelItem>					
-					
-					
-							<rich:togglePanelItem name="parts_renewed">
-									<h:outputText value="parts_renewed setting." />							
-							</rich:togglePanelItem>
-							
-							<rich:togglePanelItem name="survey">
-									<h:outputText value="survey setting" />							
-							</rich:togglePanelItem>
-							
-							<rich:togglePanelItem name="inventory_worksheet">
-									<h:outputText value="inventory_worksheet setting." />							
-							</rich:togglePanelItem>
-							
-							<rich:togglePanelItem name="unpaid_invoice">
-									<h:outputText value="unpaid_invoice setting." />							
-							</rich:togglePanelItem>							
+							</rich:togglePanelItem>													
 					
 					</rich:togglePanel>	
 					
 				</rich:panel>
 
-				<rich:panel id="status" header="Status" styleClass="status">
-					<a4j:outputPanel ajaxRendered="true">
-						<h:outputText value="Menu Selected: #{panelMenuBean.current}"
-							id="current" />
-					</a4j:outputPanel>
+				<rich:panel id="status" header="Status" >
+					<rich:messages globalOnly="true" />
 				</rich:panel>
 
 			</rich:panel>
@@ -189,9 +71,6 @@
 
 	</ui:define>
 
-	<ui:define name="info_status">
-		<rich:messages globalOnly="true" styleClass="status" />
-	</ui:define>
 
 </ui:composition>
 

@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateful;
-import javax.enterprise.inject.Alternative;
+//import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Model;
 import javax.enterprise.inject.Produces;
 import javax.faces.application.FacesMessage;
@@ -37,7 +37,7 @@ public class CustomerInfoCtrl {
 	public void submit() throws Exception{
 		submitForm(newCustomerInfo);
 		initCustomerInfo();
-		facesContext.addMessage("submitForm", new FacesMessage(FacesMessage.SEVERITY_INFO, "Customer Info Submitted", "submitted"));
+		facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Customer Info Submitted", "submitted"));
 		log.severe("Come to submit");
 	}
 	
