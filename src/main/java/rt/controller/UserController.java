@@ -11,47 +11,47 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import rt.model.entity.Employee;
-import rt.service.api.IDatabaseService;
+import rt.model.entity.User;
+import rt.service.api.IUserLoginService;
 
 @Model
-public class EmployeeController {
+public class UserController {
 	@Inject
 	private FacesContext facesContext;
 	
 	@Inject
-	private IDatabaseService employeeService;
+	private IUserLoginService userService;
 	
 	@Inject
 	private Logger log;
 	
 	
-	private Employee newEmployee;
+	private User newUser;
 	private boolean registerResult = false;
 	
 	
 	@Produces
 	@Named
-	public Employee getNewEmployee() {
-		return newEmployee;
+	public User getNewUser() {
+		return newUser;
 	}
 
-	public void setNewEmployee(Employee newEmployee){
-		this.newEmployee = newEmployee;
+	public void setNewUser(User newUser){
+		this.newUser = newUser;
 	}
 	
 	
 	public String register(){
-		log.info("EmployeeController-register:"+ newEmployee.toString());
+		log.info("UserController-register:"+ newUser.toString());
 		
 		try{
-			setRegisterResult(employeeService.findEmployee(newEmployee));
+			setRegisterResult(userService.findUser(newUser));
 			if (isRegisterResult()){
 				facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful"));
 			}else{
 				facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "failed to Register!", "Registration failed"));
 			}
-			initNewEmployee();
+			initNewUser();
 		}catch (Exception e){
 			log.severe("Error:"+e.getMessage());
 		}
@@ -59,9 +59,9 @@ public class EmployeeController {
 	}
 	
 	@PostConstruct
-	public void initNewEmployee()
+	public void initNewUser()
 	{
-		newEmployee = new Employee();
+		newUser = new User();
 	}
 
 	public boolean isRegisterResult() {

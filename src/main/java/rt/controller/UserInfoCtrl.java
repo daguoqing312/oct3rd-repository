@@ -14,12 +14,13 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 
-import rt.model.entity.CustomerInfo;
-import rt.service.api.ICustomerDatabaseService;
+import rt.model.entity.UserInfo;
+import rt.service.api.IUserInfoService;
+
 
 
 @Model
-public class CustomerInfoCtrl {
+public class UserInfoCtrl {
 
 	@Inject
 	private FacesContext facesContext;	
@@ -27,51 +28,51 @@ public class CustomerInfoCtrl {
 	@Inject
 	private Logger log;
 	
-	private CustomerInfo newCustomerInfo;
-	private CustomerInfo searchCustomerInfo;
-	private List<CustomerInfo> customerInfoList;
+	private UserInfo newUserInfo;
+	private UserInfo searchUserInfo;
+	private List<UserInfo> UserInfoList;
 	
 	private static int id=1;
 	
 	@Inject 
-	private ICustomerDatabaseService customerDBService;
+	private IUserInfoService userInfoService;
 	
 	public void submit() throws Exception{
 		try{
-			customerDBService.saveCustomer(newCustomerInfo);
+			userInfoService.saveCustomer(newUserInfo);
 		}catch (Exception e){			
 			facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Submit failed.", "Database problem."));
 		}		
 		finally{
 			id++;
-			initCustomerInfo();			
+			initUserInfo();			
 		}		
 		
-		log.info("Saved:"+newCustomerInfo.getId());
+		log.info("Saved:"+newUserInfo.getId());
 		
 		facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Customer info submitted successfully.", "No detailed info about customer."));
 	}	
 	
 	@PostConstruct
-	public void initCustomerInfo(){
-		newCustomerInfo = new CustomerInfo();
-		newCustomerInfo.setId(id);
+	public void initUserInfo(){
+		newUserInfo = new UserInfo();
+		newUserInfo.setId(id);
 	}
 
 	@Produces
 	@Named
-	public CustomerInfo getNewCustomerInfo() {
-		return newCustomerInfo;
+	public UserInfo getNewUserInfo() {
+		return newUserInfo;
 	}
 
-	public void setNewCustomerInfo(CustomerInfo newCustomerInfo) {
-		this.newCustomerInfo = newCustomerInfo;
+	public void setNewUserInfo(UserInfo newUserInfo) {
+		this.newUserInfo = newUserInfo;
 	}
 
 	@Produces
 	@Named
-	public CustomerInfo getSearchCustomerInfo() {
-		return searchCustomerInfo;
+	public UserInfo getSearchUserInfo() {
+		return searchUserInfo;
 	}
 	
 	public void search() throws Exception {
@@ -82,10 +83,10 @@ public class CustomerInfoCtrl {
 		}
 	}
 	
-	public List<CustomerInfo> getAllCustomerInfo() throws Exception {
-		List<CustomerInfo> rtnList = null;
+	public List<UserInfo> getAllUserInfo() throws Exception {
+		List<UserInfo> rtnList = null;
 		try{
-			rtnList = customerDBService.findAllCustomers();			
+			rtnList = userInfoService.findAllCustomers();			
 		}catch(Exception e){
 			facesContext.addMessage(null,new FacesMessage(FacesMessage.SEVERITY_ERROR, "Database error, cannot fetch all customer info.","No detail info provided."));
 		}		
@@ -93,9 +94,9 @@ public class CustomerInfoCtrl {
 	}
 	
 	//Find id in some type list.
-	public  List<CustomerInfo> searchElementId(List<CustomerInfo>someList, int id){
-		List<CustomerInfo> rtnList = null;		
-		Iterator<CustomerInfo>iterator = someList.iterator();
+	public  List<UserInfo> searchElementId(List<UserInfo>someList, int id){
+		List<UserInfo> rtnList = null;		
+		Iterator<UserInfo>iterator = someList.iterator();
 		while (iterator.hasNext()){
 			
 		}	

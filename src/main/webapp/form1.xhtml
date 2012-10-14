@@ -41,42 +41,42 @@
 				<h:panelGrid rowClasses="s1row" columns="3"	columnClasses="wfcol1,wfcol2,wfcol3">
 					
 					<h:outputText value="Customer Id: " />
-					<h:inputText id="cus_id" value="#{newCustomerInfo.id}" 
+					<h:inputText id="cus_id" value="#{newUserInfo.id}" 
 						required="true" />
 					<rich:message for="cus_id" />
 					
 					<h:outputText value="Company:" />
-					<h:inputText id="comp" value="#{newCustomerInfo.company}" 
+					<h:inputText id="comp" value="#{newUserInfo.company}" 
 						required="false" />
 					<rich:message for="comp" />
 					
 					<h:outputText value="Name:" />
-					<h:inputText id="name" value="#{newCustomerInfo.name}" 
+					<h:inputText id="name" value="#{newUserInfo.name}" 
 						required="false" />
 					<rich:message for="name" />
 					
 					<h:outputText value="Address:" />
-					<h:inputText id="addr" value="#{newCustomerInfo.address}" 
+					<h:inputText id="addr" value="#{newUserInfo.address}" 
 						required="true" />
 					<rich:message for="addr" />
 					
 					<h:outputText value="Phone Number:" />
-					<h:inputText id="phone1" value="#{newCustomerInfo.phone1}" 
+					<h:inputText id="phone1" value="#{newUserInfo.phone1}" 
 						required="true" />
 					<rich:message for="phone1" />
 					
 					<h:outputText value="2nd Phone Number:" />
-					<h:inputText id="phone2" value="#{newCustomerInfo.phone2}" 
+					<h:inputText id="phone2" value="#{newUserInfo.phone2}" 
 						required="false" />
 					<rich:message for="phone2" />
 					
 					<h:outputText value="Email:" />
-					<h:inputText id="email" value="#{newCustomerInfo.email}" 
+					<h:inputText id="email" value="#{newUserInfo.email}" 
 						required="false" />
 					<rich:message for="email" />
 					
 					<h:outputText value="Client Type:" />
-					<rich:select id="cl_type" required="true" value="#{newCustomerInfo.type}" >
+					<rich:select id="cl_type" required="true" value="#{newUserInfo.type}" >
 							<f:selectItem itemValue="0" itemLabel="Normal" />
 							<f:selectItem itemValue="1" itemLabel="BB/FS" />
 							<f:selectItem itemValue="2" itemLabel="TD" />
@@ -87,7 +87,7 @@
 				</h:panelGrid>
 				
 				<div class="navPanel" >
-					<a4j:commandButton value="Submit" action="#{customerInfoCtrl.submit}">						
+					<a4j:commandButton value="Submit" action="#{UserInfoCtrl.submit}">						
 					</a4j:commandButton>
 				</div>
 			</rich:panel>			

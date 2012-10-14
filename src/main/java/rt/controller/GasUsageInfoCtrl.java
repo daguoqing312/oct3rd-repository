@@ -12,12 +12,12 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 
-import rt.model.entity.UnitInfo;
-import rt.service.api.IUnitDatabaseService;
+import rt.model.entity.GasUsageInfo;
+import rt.service.api.IGasUsageService;
 
 
 @Model
-public class UnitInfoCtrl {
+public class GasUsageInfoCtrl {
 
 	@Inject
 	private FacesContext facesContext;	
@@ -25,42 +25,42 @@ public class UnitInfoCtrl {
 	@Inject
 	private Logger log;
 	
-	private UnitInfo newUnitInfo;
+	private GasUsageInfo newGasUsageInfo;
 	private static int id=1;
 	
 	@Inject 
-	private IUnitDatabaseService unitDBService;
+	private IGasUsageService unitDBService;
 	
 	public void submit() throws Exception{
 		try{
-			unitDBService.saveUnit(newUnitInfo);
+			unitDBService.saveGasUsageInfo(newGasUsageInfo);
 		}catch (Exception e){			
 			facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Submit failed.", "Database problem."));
 		}		
 		finally{
 			id++;
-			initUnitInfo();			
+			initGasUsageInfo();			
 		}		
 		
-		log.info("Saved:"+newUnitInfo.getId());
+		log.info("Saved:"+newGasUsageInfo.getId());
 		
-		facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Unit info submitted successfully.", "No detailed info about unit."));
+		facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "GasUsage info submitted successfully.", "No detailed info about unit."));
 	}	
 	
 	@PostConstruct
-	public void initUnitInfo(){
-		newUnitInfo = new UnitInfo();
-		newUnitInfo.setId(id);
+	public void initGasUsageInfo(){
+		newGasUsageInfo = new GasUsageInfo();
+		newGasUsageInfo.setId(id);
 	}
 
 	@Produces
 	@Named
-	public UnitInfo getNewUnitInfo() {
-		return newUnitInfo;
+	public GasUsageInfo getNewGasUsageInfo() {
+		return newGasUsageInfo;
 	}
 
-	public void setNewUnitInfo(UnitInfo newUnitInfo) {
-		this.newUnitInfo = newUnitInfo;
+	public void setNewGasUsageInfo(GasUsageInfo newGasUsageInfo) {
+		this.newGasUsageInfo = newGasUsageInfo;
 	}
 
 	

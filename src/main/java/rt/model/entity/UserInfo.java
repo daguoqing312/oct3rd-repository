@@ -5,7 +5,7 @@ import java.lang.String;
 import javax.persistence.*;
 
 /**
- * Entity implementation class for Entity: customerInfo
+ * Entity implementation class for Entity: UserInfo
  *
  */
 @Entity
