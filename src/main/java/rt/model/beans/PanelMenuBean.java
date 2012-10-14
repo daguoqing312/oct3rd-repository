@@ -1,28 +1,25 @@
-package org.jboss.tools.example.richfaces.bean;
+package rt.model.beans;
 
 import java.io.Serializable;
 import java.util.logging.Logger;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
+
 
 import org.richfaces.event.ItemChangeEvent;
 
 @ManagedBean
 @RequestScoped
-public class PanelMenuBean implements Serializable{
+public class PanelMenuBean implements Serializable {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 12012L;	   
 	
 	@Inject
 	private Logger log;
-    private String current;
+	
+	private String current;
     private boolean singleMode;
 
     public boolean isSingleMode() {
@@ -37,16 +34,13 @@ public class PanelMenuBean implements Serializable{
         return this.current;
     }
 
-    public void setCurrent(String current) {
-    		//if (current == null || current.equals("")) return;
-    		log.info("\n");
-    		log.info("current Value:" + current);
-        	this.current = current; 
-        	
+    public void setCurrent(String current) {        
+        	this.current = current;
+        	log.info("\n");
+        	log.info("Current menu item name:"+ current);
     }
 
     public void updateCurrent(ItemChangeEvent event) {
         setCurrent(event.getNewItemName());
-        
     }
 }

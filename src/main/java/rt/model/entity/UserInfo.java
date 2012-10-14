@@ -1,21 +1,19 @@
-package org.jboss.tools.example.richfaces.entity;
+package rt.model.entity;
 
 import java.io.Serializable;
 import java.lang.String;
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Entity implementation class for Entity: customerInfo
  *
  */
 @Entity
-public class CustomerInfo implements Serializable {
+public class UserInfo implements Serializable {
 
 	   
 	@Id
-	private int id;
-	private String company;
+	private int id;	
 	private String name;
 	private String address;
 	private String phone1;
@@ -23,10 +21,7 @@ public class CustomerInfo implements Serializable {
 	private String email;
 	private String type;
 	private static final long serialVersionUID = 1L;
-
-	public CustomerInfo() {
-		super();
-	}
+	
 	
 	public int getId() {
 		return this.id;
@@ -34,14 +29,8 @@ public class CustomerInfo implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}   
-	public String getCompany() {
-		return this.company;
-	}
-
-	public void setCompany(String company) {
-		this.company = company;
-	}   
+	} 	
+  
 	public String getName() {
 		return this.name;
 	}
@@ -81,6 +70,13 @@ public class CustomerInfo implements Serializable {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+	
+	@Override
+	public String toString(){
+		String rtnStr= new String("");
+		rtnStr += id+", "+name; 
+		return rtnStr;
 	}
    
 }

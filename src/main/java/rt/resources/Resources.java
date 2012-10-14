@@ -1,7 +1,9 @@
-package org.jboss.tools.example.richfaces.resources;
+package rt.resources;
 
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Filter;
 import java.util.logging.Level;
-
+import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
 import javax.enterprise.context.RequestScoped;
@@ -35,6 +37,9 @@ public class Resources {
 	   String class_name = injectionPoint.getMember().getDeclaringClass().getName();
        Logger logger = Logger.getLogger(class_name);
        logger.setLevel(Level.INFO);
+       //logger.setFilter(new RtFilter());
+       //logger.setUseParentHandlers(false);
+       //logger.addHandler(new ConsoleHandler());
        return logger;
    }
    
@@ -43,5 +48,14 @@ public class Resources {
    public FacesContext produceFacesContext() {
       return FacesContext.getCurrentInstance();
    }
+   
+//   class RtFilter implements Filter{
+//	   public boolean isLoggable(LogRecord record){
+//		   String title = record.getLoggerName();
+//		   System.out.println(title);
+//		   if (title.contains("Rt.")) return true;		   
+//		   return false;
+//	   }
+//   }
    
 }
