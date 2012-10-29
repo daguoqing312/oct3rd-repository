@@ -20,6 +20,7 @@ public class UserInfo implements Serializable {
 	private String phone2;
 	private String email;
 	private String type;
+	private String company;
 	private static final long serialVersionUID = 1L;
 	
 	
@@ -68,10 +69,16 @@ public class UserInfo implements Serializable {
 		return type;
 	}
 
+	public void setCompany(String company) {
+		this.company = company;
+	}
+	public String getCompany() {
+		return company;
+	}
+
 	public void setType(String type) {
 		this.type = type;
 	}
-	
 	@Override
 	public String toString(){
 		String rtnStr= new String("");
