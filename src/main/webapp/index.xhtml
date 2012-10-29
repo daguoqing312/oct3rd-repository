@@ -54,11 +54,12 @@
 							</rich:togglePanelItem>
 							
 							<rich:togglePanelItem name="user_info">
-									<ui:include src="/form1.xhtml" />							
+									<h:outputText value="Default working panel" />
+									<ui:remove><ui:include src="/form1.xhtml" /></ui:remove>							
 							</rich:togglePanelItem>	
 							
 							<rich:togglePanelItem name="gas_usage">
-									<h:outputText value="Gas usage forms" />							
+									<ui:remove><h:outputText value="Gas usage forms" />	</ui:remove>						
 							</rich:togglePanelItem>	
 							
 							<rich:togglePanelItem name="repairs">
