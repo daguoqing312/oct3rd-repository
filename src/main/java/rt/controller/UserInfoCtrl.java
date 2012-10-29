@@ -40,7 +40,9 @@ public class UserInfoCtrl {
 	public void submit() throws Exception{
 		try{
 			userInfoService.saveCustomer(newUserInfo);
-		}catch (Exception e){			
+			log.info("The new user Saved");
+		}catch (Exception e){
+			log.info("Failed");
 			facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Submit failed.", "Database problem."));
 		}		
 		finally{

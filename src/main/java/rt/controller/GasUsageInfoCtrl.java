@@ -1,6 +1,5 @@
 package rt.controller;
 
-
 import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
@@ -11,44 +10,48 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-
 import rt.model.entity.GasUsageInfo;
 import rt.service.api.IGasUsageService;
-
 
 @Model
 public class GasUsageInfoCtrl {
 
 	@Inject
-	private FacesContext facesContext;	
-		
+	private FacesContext facesContext;
+
 	@Inject
 	private Logger log;
-	
+
 	private GasUsageInfo newGasUsageInfo;
-	private static int id=1;
-	
-	@Inject 
+	private static int id = 1;
+
+	@Inject
 	private IGasUsageService unitDBService;
-	
-	public void submit() throws Exception{
-		try{
+
+	public void submit() throws Exception {
+		try {
 			unitDBService.saveGasUsageInfo(newGasUsageInfo);
-		}catch (Exception e){			
-			facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Submit failed.", "Database problem."));
-		}		
-		finally{
-			id++;
-			initGasUsageInfo();			
-		}		
+			log.info("Saved:" + newGasUsageInfo.getId());
+			
+		} catch (Exception e) {
+			log.info("Gas usage failed");
+			facesContext.addMessage(null, new FacesMessage(
+					FacesMessage.SEVERITY_FATAL, "Submit failed.",
+					"Database problem."));
+		}
 		
-		log.info("Saved:"+newGasUsageInfo.getId());
-		
-		facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "GasUsage info submitted successfully.", "No detailed info about unit."));
-	}	
-	
+
+		id++;
+		initGasUsageInfo();
+		log.info("Gas usage saved.");
+		facesContext.addMessage(null, new FacesMessage(
+				FacesMessage.SEVERITY_INFO,
+				"GasUsage info submitted successfully.",
+				"No detailed info about unit."));
+	}
+
 	@PostConstruct
-	public void initGasUsageInfo(){
+	public void initGasUsageInfo() {
 		newGasUsageInfo = new GasUsageInfo();
 		newGasUsageInfo.setId(id);
 	}
@@ -63,5 +66,4 @@ public class GasUsageInfoCtrl {
 		this.newGasUsageInfo = newGasUsageInfo;
 	}
 
-	
 }

@@ -22,7 +22,7 @@
 
 				<rich:panel header="Menu" styleClass="rt-menu" bodyClass="rt-menu-1">
 
-					<rich:panelMenu styleClass="rt-panelMenu-1" mode="client"
+					<rich:panelMenu styleClass="rt-panelMenu-1" mode="ajax"
 						itemChangeListener="#{panelMenuBean.updateCurrent}">
 
 						<rich:panelMenuGroup label="Auto Data">
@@ -47,7 +47,7 @@
 
 				<rich:panel id="work_content" header="Work Area" styleClass="work-content">
 					
-					<rich:togglePanel id="toggle_panel" switchType="client" activeItem="default" >
+					<rich:togglePanel id="toggle_panel" switchType="ajax" activeItem="default" >
 							
 							<rich:togglePanelItem name="default">
 									<h:outputText value="Default working panel" />							

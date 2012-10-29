@@ -34,7 +34,7 @@ public class ManagedUserLoginService implements IUserLoginService{
 		try{
 			try{
 				utx.begin();
-				log.info("User registed: " + user.getEmail());
+				log.info("User registed.");
 			    em.persist(user);
 			}finally{
 				utx.commit();
@@ -53,7 +53,7 @@ public class ManagedUserLoginService implements IUserLoginService{
 		try {
 			try{
 				utx.begin();
-				Query query = em.createQuery("Select e From user e");		
+				Query query = em.createQuery("Select e From User e");		
 				List<User> result = query.getResultList();
 				return result;
 			}finally {

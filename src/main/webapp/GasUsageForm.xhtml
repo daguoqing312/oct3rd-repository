@@ -1,74 +1,43 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:a4j="http://richfaces.org/a4j"
-	xmlns:rich="http://richfaces.org/rich"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:rich="http://richfaces.org/rich">
 
-<h:head>
-	<style type="text/css">
-		#GasUsageForm_1 {
-			margin: auto;
-			width: 80%;			
-			margin-top: 0px;			
-		}
-		
-		.rich-message { 
-			color:red; 
-		}
-		
-		.wform td { vertical-align:top; }
-		.wfcol1 { text-align: right; white-space:nowrap;}
-		.wfcol2 { }
-		.wfcol3 { }
-		.s1row td { height:30px; } 
-		
-		.navPanel{				
-					margin-top: 30px;
-					margin-left:100px;					
-		}
-	</style>
-</h:head>
+	<rich:panel id="GasUsageInfo" header="Gas Usage Information">
 
-<body>
+		<h:panelGrid id="GasUsageForm_panelGrid" columns="3">
+
+			<h:outputText value="Id: " />
+			<h:inputText id="id" value="#{newGasUsageInfo.id}" required="true" />
+			<rich:message for="id" />
+
+			<h:outputText value="Username:" />
+			<h:inputText id="Username" value="#{newGasUsageInfo.username}"
+				required="false" />
+			<rich:message for="Username" />
 
 
-	<div id="GasUsageForm_1" >
 
-			<rich:panel id="GasUsageInfo" header="Gas Usage Information" >
-			
-				<h:panelGrid rowClasses="s1row" columns="3"	columnClasses="wfcol1,wfcol2,wfcol3">
-					
-					<h:outputText value="Id: " />
-					<h:inputText id="id" value="#{newGasUsageInfo.id}" 
-						required="true" />
-					<rich:message for="id" />
-					
-					<h:outputText value="Username:" />
-					<h:inputText id="Username" value="#{newGasUsageInfo.username}" 
-						required="false" />
-					<rich:message for="Username" />					
-					
-					
+			<h:outputText value="Type:" />
+			<rich:select id="Type" required="true"
+				value="#{newGasUsageInfo.type}">
+				<f:selectItem itemValue="0" itemLabel="87" />
+				<f:selectItem itemValue="1" itemLabel="97" />
+				<f:selectItem itemValue="2" itemLabel="Supereme" />
+				<f:selectItem itemValue="3" itemLabel="Other" />
+			</rich:select>
+			<rich:message for="Type" />
 
-					<h:outputText value="Type:" />
-					<rich:select id="Type" required="true" value="#{newGasUsageInfo.type}" >
-							<f:selectItem itemValue="0" itemLabel="87" />
-							<f:selectItem itemValue="1" itemLabel="97" />
-							<f:selectItem itemValue="2" itemLabel="Supereme" />
-							<f:selectItem itemValue="3" itemLabel="Other" />							
-						</rich:select>	
-					<rich:message for="Type" />
-												
-				</h:panelGrid>
-				
-				<div class="navPanel" >
-					<a4j:commandButton value="Submit" action="#{GasUsageInfoCtrl.submit}">						
-					</a4j:commandButton>
-				</div>
-			</rich:panel>			
-	</div>
+		</h:panelGrid>
 
-</body>
-</html>
+
+		<a4j:commandButton value="Submit" action="#{gasUsageInfoCtrl.submit}"
+			render="GasUsageForm_panelGrid">
+		</a4j:commandButton>
+
+	</rich:panel>
+
+</ui:composition>
