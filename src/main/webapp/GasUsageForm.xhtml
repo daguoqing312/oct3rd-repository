@@ -24,10 +24,10 @@
 			<h:outputText value="Type:" />
 			<rich:select id="Type" required="false"
 				value="#{newGasUsageInfo.type}">
-				<f:selectItem itemValue="0" itemLabel="87" />
-				<f:selectItem itemValue="1" itemLabel="97" />
-				<f:selectItem itemValue="2" itemLabel="Supereme" />
-				<f:selectItem itemValue="3" itemLabel="Other" />
+				<f:selectItem itemValue="87" itemLabel="87" />
+				<f:selectItem itemValue="97" itemLabel="97" />
+				<f:selectItem itemValue="Supereme" itemLabel="Supereme" />
+				<f:selectItem itemValue="Other" itemLabel="Other" />
 			</rich:select>
 			<rich:message for="Type" />
 
@@ -37,7 +37,35 @@
 		<a4j:commandButton value="Submit" action="#{gasUsageInfoCtrl.submit}"
 			render="GasUsageForm_panelGrid">
 		</a4j:commandButton>
-
+	
 	</rich:panel>
-
+	
+	
+     <rich:panel id="GasUsageInfoSearch" header="Gas Usage Information_Search">
+        
+       <h:panelGrid id="GasUsageFormSearch_panelGrid" columns="3">
+       
+        <h:outputText value="SearchId: " />
+        <rich:select id="SearchId" required="false" value="#{newGasUsageInfo.id}">
+        <!--  <f:selectItems value="#{gasUsageInfoCtrl.gasUsageInfoItemList.get()}" />-->
+         </rich:select> 
+	    <rich:message for="Search id" />
+        
+        
+        <h:outputText value="SearchUsername:" />
+	    <h:inputText id="SearchUsername" value="#{newGasUsageInfo.username}"
+	    required="false" />		
+		<rich:message for="SearchUsername" />
+		
+		<h:outputText value="SearchType:"/>
+	    <h:inputText id="SearchType" value="#{newGasUsageInfo.type}" required="false"/>		
+		<rich:message for="SearchType" />
+        
+        </h:panelGrid>
+        
+        <a4j:commandButton value="Clear" action="#{gasUsageInfoCtrl.submit}"
+		render="GasUsageForm_panelGrid">
+		</a4j:commandButton>
+        
+     </rich:panel>
 </ui:composition>
