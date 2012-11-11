@@ -1,5 +1,6 @@
 package rt.controller;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
@@ -15,7 +16,9 @@ import rt.service.api.IGasUsageService;
 
 @Model
 public class GasUsageInfoCtrl {
-
+	
+	private List<GasUsageInfo> gasUsageInfoItemList;
+	
 	@Inject
 	private FacesContext facesContext;
 
@@ -48,6 +51,15 @@ public class GasUsageInfoCtrl {
 				FacesMessage.SEVERITY_INFO,
 				"GasUsage info submitted successfully.",
 				"No detailed info about unit."));
+		
+		gasUsageInfoItemList = unitDBService.findAllGasUsageInfo();
+		
+	}
+
+
+
+	public List<GasUsageInfo> getGasUsageInfoItemList() {
+		return gasUsageInfoItemList;
 	}
 
 	@PostConstruct
@@ -55,6 +67,8 @@ public class GasUsageInfoCtrl {
 		newGasUsageInfo = new GasUsageInfo();
 		newGasUsageInfo.setId(id);
 	}
+	
+
 
 	@Produces
 	@Named
