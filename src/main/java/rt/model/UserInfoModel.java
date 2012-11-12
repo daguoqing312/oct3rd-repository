@@ -22,6 +22,7 @@ public class UserInfoModel {
 		try{
 			userInfoService.saveCustomer(newUserInfo);
 			UserInfoBean.id++;
+			userInfoBean.init();
 		}catch (Exception e){
 			return SubmittedStatus.Refused;
 		}
