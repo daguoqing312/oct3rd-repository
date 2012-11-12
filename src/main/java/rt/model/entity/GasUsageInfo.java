@@ -9,94 +9,57 @@ import javax.persistence.*;
  *
  */
 @Entity
-
 public class GasUsageInfo implements Serializable {
 
 	   
 	@Id
-	private int id;
-	private String username;
-	private String password;
-	private String type;
-	private String brand_model;
-	private String cond_notes;
-	private String prob_desc;
-	private String rental;
-	private String service_tag;
-	private String rush;
-	private String dust;
+	private String id;
+	private String grade;
+	private String vol;
+	private String price;
+	private String mileage;
 	
-	private static final long serialVersionUID = 1L;
-
-	  
-	public int getId() {
-		return this.id;
+	public String getId() {
+		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
-	}   
-	public String getUsername() {
-		return this.username;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
-	}   
-	public String getPassword() {
-		return this.password;
+	public String getGrade() {
+		return grade;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setGrade(String grade) {
+		this.grade = grade;
 	}
-	public String getType() {
-		return type;
+
+	public String getVol() {
+		return vol;
 	}
-	public void setType(String type) {
-		this.type = type;
+
+	public void setVol(String vol) {
+		this.vol = vol;
 	}
-	public String getBrand_model() {
-		return brand_model;
+
+	public String getPrice() {
+		return price;
 	}
-	public void setBrand_model(String brand_model) {
-		this.brand_model = brand_model;
+
+	public void setPrice(String price) {
+		this.price = price;
 	}
-	public String getCond_notes() {
-		return cond_notes;
+
+	public String getMileage() {
+		return mileage;
 	}
-	public void setCond_notes(String cond_notes) {
-		this.cond_notes = cond_notes;
+
+	public void setMileage(String mileage) {
+		this.mileage = mileage;
 	}
-	public String getProb_desc() {
-		return prob_desc;
-	}
-	public void setProb_desc(String prob_desc) {
-		this.prob_desc = prob_desc;
-	}
-	public String getRental() {
-		return rental;
-	}
-	public void setRental(String rental) {
-		this.rental = rental;
-	}
-	public String getService_tag() {
-		return service_tag;
-	}
-	public void setService_tag(String service_tag) {
-		this.service_tag = service_tag;
-	}
-	public String getRush() {
-		return rush;
-	}
-	public void setRush(String rush) {
-		this.rush = rush;
-	}
-	public String getDust() {
-		return dust;
-	}
-	public void setDust(String dust) {
-		this.dust = dust;
-	}
+
+	private static final long serialVersionUID = 1L;	  
+	
    
 }

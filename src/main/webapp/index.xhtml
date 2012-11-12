@@ -5,8 +5,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:a4j="http://richfaces.org/a4j"
-	xmlns:rich="http://richfaces.org/rich"
-	>
+	xmlns:rich="http://richfaces.org/rich">
 
 	<ui:define name="style_file">
 		<h:outputStylesheet library="css" name="tab.css" />
@@ -26,75 +25,41 @@
 						itemChangeListener="#{panelMenuBean.updateCurrent}">
 
 						<rich:panelMenuGroup label="Auto Data">
-							<rich:panelMenuItem label="User Info" name="user_info" onclick="#{rich:component('toggle_panel')}.switchToItem('user_info');"/>
-							<rich:panelMenuItem label="Gas Uasage" name="gas_usage" onclick="#{rich:component('toggle_panel')}.switchToItem('gas_usage');"/>
-							<rich:panelMenuItem label="Repairs" name="repairs" onclick="#{rich:component('toggle_panel')}.switchToItem('repairs');"/>
-							<rich:panelMenuItem label="Promotion" name="promotion" onclick="#{rich:component('toggle_panel')}.switchToItem('promotion');"/>
-							<rich:panelMenuItem label="Accident" name="accident" onclick="#{rich:component('toggle_panel')}.switchToItem('accident');"/>
-						</rich:panelMenuGroup>
-
-						<rich:panelMenuGroup label="Service Infomation">
-							<rich:panelMenuItem label="Repair Owner Info" name="repair_owners" onclick="#{rich:component('toggle_panel')}.switchToItem('repair_owners');"/>
-							<rich:panelMenuItem label="Emergency Calls" name="emergency_calls" onclick="#{rich:component('toggle_panel')}.switchToItem('emergency_calls');"/>
-							<rich:panelMenuItem label="Insurance" name="insurance" onclick="#{rich:component('toggle_panel')}.switchToItem('insurance');"/>
-							<rich:panelMenuItem label="Notes" name="notes" onclick="#{rich:component('toggle_panel')}.switchToItem('notes');"/>
-						</rich:panelMenuGroup>
-
 						
+							<rich:panelMenuItem label="User Info" name="user_info"
+								onclick="#{rich:component('toggle_panel')}.switchToItem('user_info');" />
+							<rich:panelMenuItem label="Gas Uasage" name="gas_usage"
+								onclick="#{rich:component('toggle_panel')}.switchToItem('gas_usage');" />							
+							
+						</rich:panelMenuGroup>
 
 					</rich:panelMenu>
 				</rich:panel>
 
-				<rich:panel id="work_content" header="Work Area" styleClass="work-content">
-					
-					<rich:togglePanel id="toggle_panel" switchType="ajax" activeItem="default" >
-							
-							<rich:togglePanelItem name="default">
-									<h:outputText value="Default working panel" />							
-							</rich:togglePanelItem>
-					
+				<rich:panel id="work_content" header="Work Area"
+					styleClass="work-content">
 
-							<rich:togglePanelItem name="user_info">						
-									<ui:include src="/form1.xhtml" />
-							</rich:togglePanelItem>	
-							
-							<rich:togglePanelItem name="gas_usage">	
-							   <ui:include src="/GasUsageForm.xhtml" />
-							</rich:togglePanelItem>	
-							
-							<rich:togglePanelItem name="repairs">
-									<h:outputText value="Repair forms" />							
-							</rich:togglePanelItem>	
-							
-							<rich:togglePanelItem name="promotion">
-									<h:outputText value="promotion forms" />							
-							</rich:togglePanelItem>	
-							
-							<rich:togglePanelItem name="accident">
-									<h:outputText value="Accident forms" />							
-							</rich:togglePanelItem>
-							
-							<rich:togglePanelItem name="repairs">
-									<h:outputText value="Repair forms" />							
-							</rich:togglePanelItem>	
-							
-							<rich:togglePanelItem name="promotion">
-									<h:outputText value="Promotion forms" />							
-							</rich:togglePanelItem>	
-							
-							<rich:togglePanelItem name="accident">
-									<h:outputText value="Accident forms" />							
-							</rich:togglePanelItem>	
-							
-							<rich:togglePanelItem name="repair_owners">
-									<h:outputText value="Repair Owner forms" />							
-							</rich:togglePanelItem>												
-					
-					</rich:togglePanel>	
-					
+					<rich:togglePanel id="toggle_panel" switchType="ajax"
+						activeItem="default">
+
+						<rich:togglePanelItem name="default">
+							<h:outputText value="Default working panel" />
+						</rich:togglePanelItem>
+
+
+						<rich:togglePanelItem name="user_info">
+							<ui:include src="/work_forms/user_form.xhtml" />
+						</rich:togglePanelItem>
+
+						<rich:togglePanelItem name="gas_usage">
+							<ui:include src="/work_forms/gas_usage_form.xhtml" />
+						</rich:togglePanelItem>
+
+					</rich:togglePanel>
+
 				</rich:panel>
 
-				<rich:panel id="status" header="Status" >
+				<rich:panel id="status" header="Status">
 					<rich:messages globalOnly="true" />
 				</rich:panel>
 

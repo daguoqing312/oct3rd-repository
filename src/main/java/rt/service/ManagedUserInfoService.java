@@ -76,15 +76,15 @@ public class ManagedUserInfoService implements IUserInfoService{
 	      try{
 	    	  try{
 	    		  utx.begin();	    		  
-	    	      String phone1 = customer.getPhone1();
-	    	      String queryStatement = "Select u From UserInfo u Where u.phone1= :phone1";
+	    	      String id = customer.getId();
+	    	      String queryStatement = "Select u From UserInfo u Where u.id= :id";
 	    	      Query query = em.createQuery(queryStatement);
-	    	      query.setParameter("phone1", phone1);	    		  
+	    	      query.setParameter("id", id);	    		  
 	    			
 	    	      List<UserInfo> results = query.getResultList();
 	    	      
 	    	      if (results.isEmpty()) {
-	    	    	  log.info("No such a customer with the phone:" + phone1);
+	    	    	  log.info("No such a customer with the phone:" + id);
 	    	    	  result = null;
 	    	      } else if (results.size() > 1) {
 	    	         log.info("More than one customer have the same phone!");

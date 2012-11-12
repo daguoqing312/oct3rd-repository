@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	>
+
+			<rich:panel id="cus_info" header="Customer Information" >
+			
+				<h:panelGrid  id="user_info" columns="2"	>
+					
+					<h:outputText value="Customer Id: " />
+					<h:inputText value="#{newUserInfo.id}" 
+						required="true" />					
+					
+					
+					<h:outputText value="Name:" />
+					<h:inputText  value="#{newUserInfo.name}" 
+						required="false" />
+					
+					
+					<h:outputText value="Address:" />
+					<h:inputText  value="#{newUserInfo.address}" 
+						required="false" />
+					
+					
+					<h:outputText value="Phone Number:" />
+					<h:inputText  value="#{newUserInfo.phone}" 
+						required="false" />					
+					
+					
+					<h:outputText value="Email:" />
+					<h:inputText  value="#{newUserInfo.email}" 
+						required="false" />								
+					
+					
+					<h:outputText value="Password:" />
+					<h:inputText  value="#{newUserInfo.password}" 
+						required="false" />												
+				</h:panelGrid>
+								
+				<a4j:commandButton value="Submit" action="#{userInfoCtrl.submit}" render=":user_info" />					
+				
+			</rich:panel>			
+</ui:composition>

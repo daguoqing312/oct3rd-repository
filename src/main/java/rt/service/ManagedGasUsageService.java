@@ -77,21 +77,21 @@ public class ManagedGasUsageService implements IGasUsageService{
 	      try{
 	    	  try{
 	    		  utx.begin();	    		  
-	    	      String service_tag = gasUsageInfo.getService_tag();
-	    	      String queryStatement = "Select u From GasUsageInfo u Where u.service_tag= :service_tag";
+	    	      String id = gasUsageInfo.getId();
+	    	      String queryStatement = "Select u From GasUsageInfo u Where u.id= :id";
 	    	      Query query = em.createQuery(queryStatement);
-	    	      query.setParameter("service_tag", service_tag);	    		  
+	    	      query.setParameter("id", id);	    		  
 	    			
 	    	      List<GasUsageInfo> results = query.getResultList();
 	    	      
 	    	      if (results.isEmpty()) {
-	    	    	  log.info("No such a gasUsageInfo with the service_tag:" + service_tag);
+	    	    	  log.info("No such a gasUsageInfo with the id:" + id);
 	    	    	  result = null;
 	    	      } else if (results.size() > 1) {
-	    	         log.info("More than one gasUsageInfo have the same service_tag!");
+	    	         log.info("More than one gasUsageInfo have the same id!");
 	    	         result =results.get(0);
 	    	      } else {
-	    	    	  log.info("Find the gasUsageInfo with the service_tag.");
+	    	    	  log.info("Find the gasUsageInfo with the id.");
 	    	         result =results.get(0);
 	    	      }
 	    	      return result;

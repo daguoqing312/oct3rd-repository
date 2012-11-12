@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<rich:panel id="GasUsageInfo" header="Gas Usage Information">
+
+		<h:panelGrid id="gas_usage" columns="2">
+
+			<h:outputText value="Id: " />
+			<h:inputText value="#{newGasUsageInfo.id}" required="true" />
+
+
+			<h:outputText value="Gas Grade:" />
+			<rich:select  required="false"
+				value="#{newGasUsageInfo.grade}">
+				<f:selectItem itemValue="87" itemLabel="Regular 87" />
+				<f:selectItem itemValue="91" itemLabel="Clean 91" />
+				<f:selectItem itemValue="94" itemLabel="Super Clean 94" />
+				<f:selectItem itemValue="100" itemLabel="Other" />
+			</rich:select>
+			
+			<h:outputText value="Volumn Filled: " />
+			<h:inputText value="#{newGasUsageInfo.vol}" />
+			
+			<h:outputText value="Gas paid: " />
+			<h:inputText value="#{newGasUsageInfo.price}" />
+			
+			<h:outputText value="Mileage: " />
+			<h:inputText value="#{newGasUsageInfo.mileage}" />
+		</h:panelGrid>
+
+
+		<a4j:commandButton value="Submit" action="#{gasUsageInfoCtrl.submit}"
+			render="gas_usage">
+		</a4j:commandButton>
+	
+	</rich:panel>	
+	
+</ui:composition>

@@ -1,23 +1,14 @@
 package rt.controller;
 
-import java.util.List;
 import java.util.logging.Logger;
-
-import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
-import javax.enterprise.inject.Produces;
-import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.inject.Named;
+import rt.model.GasUsageInfoModel;
 
-import rt.model.entity.GasUsageInfo;
-import rt.service.api.IGasUsageService;
 
 @Model
-public class GasUsageInfoCtrl {
-	
-	private List<GasUsageInfo> gasUsageInfoItemList;
+public class GasUsageInfoCtrl {	
 	
 	@Inject
 	private FacesContext facesContext;
@@ -25,59 +16,18 @@ public class GasUsageInfoCtrl {
 	@Inject
 	private Logger log;
 
-	private GasUsageInfo newGasUsageInfo;
-	private static int id = 1;
-
 	@Inject
-	private IGasUsageService unitDBService;
-
-	public void submit() throws Exception {
-		try {
-			unitDBService.saveGasUsageInfo(newGasUsageInfo);
-			log.info("Saved:" + newGasUsageInfo.getId());
-			
-		} catch (Exception e) {
-			log.info("Gas usage failed");
-			facesContext.addMessage(null, new FacesMessage(
-					FacesMessage.SEVERITY_FATAL, "Submit failed.",
-					"Database problem."));
+	private GasUsageInfoModel gasUsageInfoModel;
+	
+	public void submit(){
+		switch (gasUsageInfoModel.doSubject()){
+		case Accepted:
+			log.info("The form submitted.");
+			break;
+		case Refused:
+			log.info("The form is refused.");
+			break;		
 		}
 		
-
-		id++;
-		initGasUsageInfo();
-		log.info("Gas usage saved.");
-		facesContext.addMessage(null, new FacesMessage(
-				FacesMessage.SEVERITY_INFO,
-				"GasUsage info submitted successfully.",
-				"No detailed info about unit."));
-		
-		gasUsageInfoItemList = unitDBService.findAllGasUsageInfo();
-		
 	}
-
-
-
-	public List<GasUsageInfo> getGasUsageInfoItemList() {
-		return gasUsageInfoItemList;
-	}
-
-	@PostConstruct
-	public void initGasUsageInfo() {
-		newGasUsageInfo = new GasUsageInfo();
-		newGasUsageInfo.setId(id);
-	}
-	
-
-
-	@Produces
-	@Named
-	public GasUsageInfo getNewGasUsageInfo() {
-		return newGasUsageInfo;
-	}
-
-	public void setNewGasUsageInfo(GasUsageInfo newGasUsageInfo) {
-		this.newGasUsageInfo = newGasUsageInfo;
-	}
-
 }
