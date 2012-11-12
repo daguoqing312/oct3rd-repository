@@ -2,17 +2,20 @@ package rt.model.beans;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Produces;
+import javax.inject.Named;
 
 import rt.model.entity.UserInfo;
 
 @RequestScoped
 public class UserInfoBean {
 
-	static int id = 1;
+	public static int id = 1;
 	
 	private UserInfo newUserInfo;
 
-	
+	@Named
+	@Produces
 	public UserInfo getNewUserInfo() {
 		return newUserInfo;
 	}

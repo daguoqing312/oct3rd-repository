@@ -21,6 +21,7 @@ public class GasUsageInfoModel {
 		GasUsageInfo newGasUsageInfo = gasUsageInfoBean.getNewGasUsageInfo();
 		try{
 			gasUsageService.saveGasUsageInfo(newGasUsageInfo);
+			GasUsageInfoBean.id++;
 		}catch (Exception e){
 			return SubmittedStatus.Refused;
 		}
