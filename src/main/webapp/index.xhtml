@@ -12,7 +12,22 @@
 <h:form id="reg" styleClass="register-form">
  <rich:panel id="LoginPanel" header="Login" headerClass="header" bodyClass="index-register-body">
 
-  <composite:memberForm toLogin="#{newUser}"/>
+  <!--  <composite:memberForm toLogin="#{newUser}"/>  -->
+     <h:panelGrid columns="3" columnClasses="titleCell">      
+
+      <h:outputLabel for="id" value="Id:"/>
+      <h:inputText id="id" value="#{loginCtrl.newUser.id}">
+         <rich:validator/>
+      </h:inputText>
+      <rich:message for="id" errorClass="invalid"/>
+
+      <h:outputLabel for="password" value="Password:"/>
+      <h:inputSecret type="password" id="password" value="#{loginCtrl.newUser.password}">
+         <rich:validator/>
+         </h:inputSecret>
+           
+      <rich:message for="password" errorClass="invalid"/>
+   </h:panelGrid>
   
  <p style="text-align: center;">
   <a4j:commandButton id="login"  action="#{loginCtrl.login}" value="Enter" styleClass="login" /> 
