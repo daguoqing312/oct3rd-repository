@@ -23,9 +23,9 @@
       <rich:message for="id" errorClass="invalid"/>
 
       <h:outputLabel for="password" value="Password:"/>
-      <h:inputText type="password" id="password" value="#{cc.attrs.toLogin.password}">
+      <h:inputSecret type="password" id="password" value="#{cc.attrs.toLogin.password}">
          <rich:validator/>
-         </h:inputText>
+         </h:inputSecret>
            
       <rich:message for="password" errorClass="invalid"/>
    </h:panelGrid>
