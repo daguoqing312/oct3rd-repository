@@ -9,29 +9,25 @@
 
 <!-- INTERFACE -->
 <composite:interface>
-   <composite:attribute name="member"/>
+   <composite:attribute name="toLogin"/>
 </composite:interface>
 
 <!-- IMPLEMENTATION -->
 <composite:implementation>
-   <h:panelGrid columns="3" columnClasses="titleCell">
-      <h:outputLabel for="name" value="Name:"/>
-      <h:inputText id="name" value="#{cc.attrs.member.name}">
-         <rich:validator/>
-      </h:inputText>
-      <rich:message for="name" errorClass="invalid"/>
+   <h:panelGrid columns="3" columnClasses="titleCell">      
 
-      <h:outputLabel for="email" value="Email:"/>
-      <h:inputText id="email" value="#{cc.attrs.member.email}">
+      <h:outputLabel for="id" value="Id:"/>
+      <h:inputText id="id" value="#{cc.attrs.toLogin.id}">
          <rich:validator/>
       </h:inputText>
-      <rich:message for="email" errorClass="invalid"/>
+      <rich:message for="id" errorClass="invalid"/>
 
-      <h:outputLabel for="phoneNumber" value="Phone #:"/>
-      <h:inputText id="phoneNumber" value="#{cc.attrs.member.phoneNumber}">
+      <h:outputLabel for="password" value="Password:"/>
+      <h:inputText type="password" id="password" value="#{cc.attrs.toLogin.password}">
          <rich:validator/>
-      </h:inputText>
-      <rich:message for="phoneNumber" errorClass="invalid"/>
+         </h:inputText>
+           
+      <rich:message for="password" errorClass="invalid"/>
    </h:panelGrid>
 </composite:implementation>
 </html>

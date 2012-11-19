@@ -1,74 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ui:composition template="/WEB-INF/templates/default.xhtml"
-	xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:a4j="http://richfaces.org/a4j"
-	xmlns:rich="http://richfaces.org/rich">
+<ui:composition template="WEB-INF/templates/login_default.xhtml" 
+       xmlns="http://www.w3.org/1999/xhtml" 
+       xmlns:ui="http://java.sun.com/jsf/facelets" 
+       xmlns:f="http://java.sun.com/jsf/core" 
+       xmlns:h="http://java.sun.com/jsf/html" 
+       xmlns:a4j="http://richfaces.org/a4j" 
+       xmlns:rich="http://richfaces.org/rich"
+       xmlns:composite="http://java.sun.com/jsf/composite/components">
+       
+<ui:define name="login_content">
+<h:form id="reg" styleClass="register-form">
+ <rich:panel id="LoginPanel" header="Login" headerClass="header" bodyClass="index-register-body">
 
-	<ui:define name="style_file">
-		<h:outputStylesheet library="css" name="tab.css" />
-	</ui:define>
-
-	<ui:define name="content">
-
-		<h:form id="reg" styleClass="rt-form">
-
-			<rich:panel id="workingPanel" headerClass="rt-header"
-				bodyClass="rt-body" styleClass="rt-style"
-				header="The Auto Management System">
-
-				<rich:panel header="Menu" styleClass="rt-menu" bodyClass="rt-menu-1">
-
-					<rich:panelMenu styleClass="rt-panelMenu-1" mode="ajax"
-						itemChangeListener="#{panelMenuBean.updateCurrent}">
-
-						<rich:panelMenuGroup label="Auto Data">
-						
-							<rich:panelMenuItem label="User Info" name="user_info"
-								onclick="#{rich:component('toggle_panel')}.switchToItem('user_info');" />
-							<rich:panelMenuItem label="Gas Uasage" name="gas_usage"
-								onclick="#{rich:component('toggle_panel')}.switchToItem('gas_usage');" />							
-							
-						</rich:panelMenuGroup>
-
-					</rich:panelMenu>
-				</rich:panel>
-
-				<rich:panel id="work_content" header="Work Area"
-					styleClass="work-content">
-
-					<rich:togglePanel id="toggle_panel" switchType="ajax"
-						activeItem="default">
-
-						<rich:togglePanelItem name="default">
-							<h:outputText value="Default working panel" />
-						</rich:togglePanelItem>
-
-
-						<rich:togglePanelItem name="user_info">
-							<ui:include src="/work_forms/user_form.xhtml" />
-						</rich:togglePanelItem>
-
-						<rich:togglePanelItem name="gas_usage">
-							<ui:include src="/work_forms/gas_usage_form.xhtml" />
-						</rich:togglePanelItem>
-
-					</rich:togglePanel>
-
-				</rich:panel>
-
-				<rich:panel id="status" header="Status">
-					<rich:messages globalOnly="true" />
-				</rich:panel>
-
-			</rich:panel>
-
-		</h:form>
-
-	</ui:define>
-
-
-</ui:composition>
-
+  <composite:memberForm toLogin="#{newUser}"/>
+  
+ <p style="text-align: center;">
+  <a4j:commandButton id="login"  action="#{loginCtrl.login}" value="Enter" styleClass="login" /> 
+  <a4j:commandButton id="newUser"  value="New User?" styleClass="register" /> 
+  </p>
+  </rich:panel>
+  </h:form>
+  </ui:define>
+ <ui:define name="status">
+  <rich:messages globalOnly="true" styleClass="status" /> 
+  </ui:define>
+  </ui:composition>

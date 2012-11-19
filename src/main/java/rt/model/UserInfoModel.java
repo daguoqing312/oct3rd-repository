@@ -20,7 +20,7 @@ public class UserInfoModel {
 	public SubmittedStatus doSubmit(){
 		UserInfo newUserInfo = userInfoBean.getNewUserInfo();
 		try{
-			userInfoService.saveCustomer(newUserInfo);
+			userInfoService.saveUser(newUserInfo);
 			UserInfoBean.id++;
 			userInfoBean.init();
 		}catch (Exception e){

@@ -10,14 +10,14 @@
 		<from-view-id>/index.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>registerResult</from-outcome>
-			<if>#{getin}</if>
-			<to-view-id>/index222222.xhtml</to-view-id>
+			<if>#{loginCtrl.registerResult}</if>
+			<to-view-id>/work_forms/main_page.xhtml</to-view-id>
 		</navigation-case>
-		<navigation-case>
-			<from-outcome>registerResult</from-outcome>
-			<if>#{!getin}</if>
-			<to-view-id>/index.xhtml</to-view-id>
-		</navigation-case>
+  <navigation-case>
+   <from-outcome>registerResult</from-outcome>
+   <if>#{!loginCtrl.registerResult}</if>
+   <to-view-id>/index.xhtml</to-view-id>
+  </navigation-case>
 	</navigation-rule>
 
 	<!-- This descriptor activates the JSF 2.0 Servlet -->

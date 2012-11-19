@@ -12,12 +12,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.transaction.UserTransaction;
 
+
 import rt.model.entity.UserInfo;
 import rt.service.api.IUserInfoService;
 
 
 
-@Named("customerDbService")
+@Named("userDbService")
 @RequestScoped
 public class ManagedUserInfoService implements IUserInfoService{
 	
@@ -32,7 +33,7 @@ public class ManagedUserInfoService implements IUserInfoService{
 	
 
 	@Override
-	public void saveCustomer(UserInfo userInfo) throws Exception {
+	public void saveUser(UserInfo userInfo) throws Exception {
 		try{
 			try{
 				utx.begin();
@@ -53,7 +54,7 @@ public class ManagedUserInfoService implements IUserInfoService{
 	@Produces
 	@Named
 	@RequestScoped
-	public List<UserInfo> findAllCustomers() throws Exception {
+	public List<UserInfo> findAllUsers() throws Exception {
 		try {
 			try{
 				utx.begin();
@@ -71,12 +72,12 @@ public class ManagedUserInfoService implements IUserInfoService{
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public UserInfo findCustomer(UserInfo customer) throws Exception {
+	public UserInfo findUserInfo(UserInfo user) throws Exception {
 		UserInfo result ;
 	      try{
 	    	  try{
 	    		  utx.begin();	    		  
-	    	      String id = customer.getId();
+	    	      String id = user.getId();
 	    	      String queryStatement = "Select u From UserInfo u Where u.id= :id";
 	    	      Query query = em.createQuery(queryStatement);
 	    	      query.setParameter("id", id);	    		  
@@ -102,4 +103,36 @@ public class ManagedUserInfoService implements IUserInfoService{
 	    	 throw e;
 	     }
 	}
+	
+	public boolean findTheUser(UserInfo user){		
+		String queryStatement = "Select u From UserInfo u Where  u.password = :password";
+		Query query = em.createQuery(queryStatement);
+		query.setParameter("password", user.getPassword());
+		int resultInt = query.getResultList().size();
+		log.info("Line40 Results:" + resultInt);
+		return resultInt>0;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public boolean findUser(UserInfo user) throws Exception {
+	      String email= user.getEmail();
+	      String password = user.getPassword();
+	      String queryStatement = "Select u From UserInfo u Where u.password = :password";
+	      Query query = em.createQuery(queryStatement);
+		  query.setParameter("password", password);
+			
+	      List<UserInfo> results = query.getResultList();
+	      
+	      if (results.isEmpty()) {
+	    	  log.info("Line62: Email or Password may be wrong.");
+	         return false;
+	      } else if (results.size() > 1) {
+	    	  log.info("Line65, Error"+results.size());
+	         throw new IllegalStateException("Cannot have more than one user with the same username!");
+	      } else {
+	    	  log.info("Line68: Your are logged in.");
+	         return true;
+	      }
+	 }
+	
 }
