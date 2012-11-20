@@ -196,3 +196,40 @@ input {
 .tabHeader {
 	width: 300px;
 }
+
+/*
+	Stylesheet for tab
+*/
+#content {  
+  width: 98%;
+  margin: auto;
+}
+
+.rt-menu{
+	background-color: Beige;
+	float: left;
+	padding: 0px;	
+}
+
+.rt-menu-1{
+	padding: 1px;
+	padding-top:2px;
+}
+
+.rt-panelMenu-1{
+	margin: 0px;
+	width:200px; 
+	height: 600px;	
+}
+
+.work-content{
+	margin-left: 210px;
+	height: 620px;
+	background-color: Beige;
+}
+
+.status{
+	margin-top: 5px;
+	clear: both;
+	background-color: Beige;	
+}
