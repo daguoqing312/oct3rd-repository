@@ -2,6 +2,7 @@ package rt.controller;
 
 
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
@@ -35,6 +36,8 @@ public class LoginCtrl {
 	@Produces
 	@Named
 	public UserInfo getNewUser() {
+		log.info("test");
+		log.log(Level.ALL, "test");
 		return newUser;
 	}
 
